@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Esterasul</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- HERO -->
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <h1>ESTERASUL</h1>
+            <p>The World of Radianas</p>
+
+        </div>
+
+    </section>
+
+    <!-- NAVIGATION -->
+
+    <nav class="nav-buttons">
+
+        <a href="world.html" target="_blank">World</a>
+
+        <a href="culture.html" target="_blank">Culture</a>
+
+        <a href="language.html" target="_blank">Language</a>
+
+        <a href="anatomy.html" target="_blank">Anatomy</a>
+
+        <a href="fauna.html" target="_blank">Fauna</a>
+
+        <a href="characters.html" target="_blank">Characters</a>
+
+        <a href="adoptables.html" target="_blank">Adoptables</a>
+
+        <a href="races.html" target="_blank">Races</a>
+
+    </nav>
+
+    <!-- SUBSPECIES -->
+
+    <section class="banner-section">
+
+        <div class="banner-overlay">
+
+            <h2>SUBSPECIES</h2>
+
+            <p>
+                All Radian subspecies share the same core anatomy and
+                structure while displaying regional adaptations.
+            </p>
+
+        </div>
+
+    </section>
+
+    <div class="species-grid">
+
+        <a href="southern.html" target="_blank" class="species-card">
+
+            <h3>Southern Radians</h3>
+            <p>Theoremus Aflide</p>
+
+        </a>
+
+        <a href="mountain.html" target="_blank" class="species-card">
+
+            <h3>Mountain Radians</h3>
+            <p>Theoremus Rupius</p>
+
+        </a>
+
+        <a href="forest.html" target="_blank" class="species-card">
+
+            <h3>Forest Radians</h3>
+            <p>Theoremus Arboris</p>
+
+        </a>
+
+    </div>
+
+    <!-- MAP -->
+
+    <section class="map-header">
+
+        <h2>ESTERASUL WORLD MAP</h2>
+
+    </section>
+
+    <section class="map-layout">
+
+        <div class="map-image">
+
+            <img src="images/worldmap.jpg" alt="World Map">
+
+        </div>
+
+        <div class="map-sidebar">
+
+            <a href="north.html" target="_blank">
+                Northern Forest Belt
+            </a>
+
+            <a href="central.html" target="_blank">
+                Central Highlands
+            </a>
+
+            <a href="south.html" target="_blank">
+                Southern Valley
+            </a>
+
+            <div class="info-box">
+
+                Select a location to learn more.
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+</body>
+</html>
