@@ -5,6 +5,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<script>
+(function(){
+    try{
+        if(localStorage.getItem('theme') === 'light'){
+            document.documentElement.setAttribute('data-theme','light');
+        }
+    }catch(e){}
+})();
+</script>
+
 <title>Gallery | ESTERASUL</title>
 
 
@@ -32,6 +42,8 @@
 
 </a>
 
+<div class="header-right">
+
 <nav>
 
 <ul>
@@ -57,6 +69,13 @@
 </ul>
 
 </nav>
+
+<button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle light and dark theme">
+<span class="theme-icon-dark">&#9789;</span>
+<span class="theme-icon-light">&#9728;</span>
+</button>
+
+</div>
 
 </header>
 
@@ -396,6 +415,8 @@ points and the Anatomy page for structural reference.
 </footer>
 
 </div>
+
+<script src="site.js"></script>
 
 </body>
 </html>
