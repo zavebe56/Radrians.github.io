@@ -126,7 +126,7 @@ html[data-theme="light"]{
 }
 
 html[data-theme="light"] body{
-    background-image:radial-gradient(circle at 15% 0%, rgba(168,58,38,.05), transparent 45%);
+    background-image:radial-gradient(circle at 15% 0%, rgba(168,58,38,.05), transparent 20%);
 }
 
 html[data-theme="light"] .logo-symbol{
