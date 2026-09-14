@@ -126,7 +126,7 @@ html[data-theme="light"]{
 }
 
 html[data-theme="light"] body{
-    background-image:radial-gradient(circle at 15% 0%, rgba(168,58,38,.05), transparent 20%);
+    background-image:radial-gradient(circle at 15% 0%, rgba(168,58,38,.05), transparent 45%);
 }
 
 html[data-theme="light"] .logo-symbol{
@@ -139,6 +139,18 @@ html[data-theme="light"] .map-region{
 
 html[data-theme="light"] .box-image::after{
     background:linear-gradient(to top, rgba(35,29,22,.20), transparent 55%);
+}
+
+html[data-theme="light"] .hero-overlay{
+
+    background:
+    linear-gradient(
+        100deg,
+        rgba(244,239,230,.90) 5%,
+        rgba(244,239,230,.72) 40%,
+        rgba(244,239,230,.45) 75%,
+        rgba(244,239,230,.76) 100%
+    );
 }
 
 *{
@@ -159,7 +171,7 @@ color:var(--text);
 
 background:var(--bg);
 
-background-image:radial-gradient(circle at 15% 0%, rgba(177,64,42,.06), transparent 10%);
+background-image:radial-gradient(circle at 15% 0%, rgba(177,64,42,.06), transparent 45%);
 
 overflow-x:hidden;
 
@@ -178,7 +190,7 @@ max-width:1360px;
 
 margin:auto;
 
-padding:20px 0px 0px;
+padding:0 40px 40px;
 
 position:relative;
 }
@@ -436,9 +448,9 @@ nav a.active{
     linear-gradient(
         100deg,
         rgba(9,8,7,.94) 5%,
-        rgba(9,8,7,.78) 10%,
-        rgba(9,8,7,.55) 20%,
-        rgba(9,8,7,.82) 35%
+        rgba(9,8,7,.78) 40%,
+        rgba(9,8,7,.55) 75%,
+        rgba(9,8,7,.82) 100%
     );
 
     z-index:1;
@@ -590,7 +602,7 @@ grid-template-columns:repeat(6,1fr);
 
 gap:1px;
 
-margin-top:1px;
+margin:1px -40px 0;
 
 background:var(--border);
 
@@ -924,6 +936,14 @@ footer p{
     background:var(--panel);
 
     border:1px solid var(--border);
+}
+
+/* Modifier: puts the submenu on the right instead of the left.
+   Use by adding class="content-layout right-submenu" to the
+   wrapper, and placing .content-main before .side-submenu in
+   the HTML (see species.html). */
+.content-layout.right-submenu{
+    grid-template-columns:1fr 250px;
 }
 
 .side-submenu h4{
@@ -1938,6 +1958,8 @@ gap:18px;
 
 .archive-nav{
 grid-template-columns:1fr;
+margin-left:-20px;
+margin-right:-20px;
 }
 
 }
