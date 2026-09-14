@@ -1503,208 +1503,213 @@ footer p{
 
 /* =========================================================
    INTERACTIVE WORLD MAP
+   The map is now a plain picture (.map-image) with small round
+   marker buttons (.map-marker) placed on top of it. Each
+   marker's position is set with inline "left"/"top" percentages
+   in the HTML, not here — see the comment above the markers in
+   world.html for how to move or add one. This CSS only controls
+   how the image and dots look.
    ========================================================= */
-
+ 
 .world-map{
-
+ 
     background:var(--panel);
-
+ 
     border:1px solid var(--border);
-
+ 
     padding:24px;
 }
-
-.map-svg{
-
+ 
+/* The map picture itself. Change aspect-ratio if you swap in an
+   image with different proportions than a square (width/height) —
+   e.g. use 16/9 for a wide map, 3/4 for a tall one. */
+.map-image{
+ 
+    position:relative;
+ 
     width:100%;
-
-    height:auto;
-
-    display:block;
+ 
+    aspect-ratio:1/1;
+ 
+    background-size:cover;
+ 
+    background-position:center;
+ 
+    border:1px solid var(--border-strong);
+ 
+    overflow:hidden;
 }
-
-.map-region{
-
-    fill:rgba(233,225,213,.03);
-
-    stroke:var(--border-strong);
-
-    stroke-width:1;
-
-    transition:fill .2s;
-
-    cursor:pointer;
-}
-
-.map-region:hover{
-
-    fill:var(--accent-soft);
-}
-
-.map-label{
-
-    font-family:var(--font-body);
-
-    font-size:13px;
-
-    font-weight:600;
-
-    letter-spacing:.5px;
-
-    text-transform:uppercase;
-
-    fill:var(--text-faint);
-
-    pointer-events:none;
-}
-
+ 
+/* Each marker is a small invisible button sized 28x28px, centred
+   exactly on its left/top point (the negative margin does the
+   centring so the coordinates line up with the visible dot). */
 .map-marker{
-
+ 
+    position:absolute;
+ 
+    top:0;
+    left:0;
+ 
+    width:28px;
+    height:28px;
+ 
+    margin:-14px 0 0 -14px;
+ 
+    padding:0;
+ 
+    border:none;
+    background:none;
+ 
     cursor:pointer;
 }
-
+ 
 .map-marker .marker-ring{
-
-    fill:none;
-
-    stroke:var(--accent);
-
-    stroke-width:1;
-
+ 
+    position:absolute;
+ 
+    inset:0;
+ 
+    border:1px solid var(--accent);
+ 
+    border-radius:50%;
+ 
     opacity:.5;
-
-    transform-box:fill-box;
-
-    transform-origin:center;
-
+ 
     animation:mapPulse 2.6s ease-out infinite;
 }
-
+ 
 .map-marker .marker-dot{
-
-    fill:var(--accent);
-
-    stroke:var(--bg);
-
-    stroke-width:2;
-
-    transform-box:fill-box;
-
-    transform-origin:center;
-
-    transition:transform .2s, fill .2s;
+ 
+    position:absolute;
+ 
+    top:50%;
+    left:50%;
+ 
+    width:12px;
+    height:12px;
+ 
+    margin:-6px 0 0 -6px;
+ 
+    border-radius:50%;
+ 
+    background:var(--accent);
+ 
+    border:2px solid var(--bg);
+ 
+    transition:transform .2s, background .2s;
 }
-
+ 
 .map-marker:hover .marker-dot,
 .map-marker.active .marker-dot{
-
-    fill:var(--accent-hover);
-
+ 
+    background:var(--accent-hover);
+ 
     transform:scale(1.3);
 }
-
+ 
 .map-marker.active .marker-ring{
-
-    stroke:var(--accent-hover);
-
+ 
+    border-color:var(--accent-hover);
+ 
     opacity:.8;
 }
-
+ 
 @keyframes mapPulse{
-
+ 
     0%{ transform:scale(.55); opacity:.6; }
     100%{ transform:scale(2); opacity:0; }
 }
-
+ 
 .map-hint{
-
+ 
     margin-top:14px;
-
+ 
     font-family:var(--font-body);
-
+ 
     font-size:11.5px;
-
+ 
     font-weight:600;
-
+ 
     letter-spacing:1.5px;
-
+ 
     text-transform:uppercase;
-
+ 
     color:var(--text-faint);
-
+ 
     text-align:center;
 }
-
+ 
 .map-info{
-
+ 
     margin-top:20px;
-
+ 
     background:var(--panel);
-
+ 
     border:1px solid var(--border);
-
+ 
     display:grid;
-
+ 
     grid-template-columns:280px 1fr;
-
+ 
     min-height:220px;
 }
-
+ 
 .map-info-image{
-
+ 
     background-size:cover;
-
+ 
     background-position:center;
-
+ 
     background-color:var(--bg-soft);
-
+ 
     min-height:220px;
 }
-
+ 
 .map-info-body{
-
+ 
     padding:32px 36px;
-
+ 
     display:flex;
-
+ 
     flex-direction:column;
-
+ 
     justify-content:center;
 }
-
+ 
 .map-info-body h3{
-
+ 
     font-family:var(--font-head);
-
+ 
     font-size:26px;
-
+ 
     font-weight:600;
-
+ 
     color:var(--text);
-
+ 
     margin:8px 0 12px;
 }
-
+ 
 .map-info-body p{
-
+ 
     font-size:16px;
-
+ 
     line-height:1.75;
-
+ 
     color:var(--text-muted);
 }
-
+ 
 @media(max-width:700px){
-
+ 
     .map-info{
         grid-template-columns:1fr;
     }
-
+ 
     .map-info-image{
         height:200px;
     }
-
+ 
 }
+ 
 
 /* =========================================================
    LANGUAGE PAGE — vocabulary tables
