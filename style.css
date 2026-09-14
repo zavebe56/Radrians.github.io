@@ -500,7 +500,7 @@ nav a.active{
 
     margin-bottom:18px;
 
-    color:#f4ede1;
+    color:var(--text);
 
     letter-spacing:-.5px;
 }
