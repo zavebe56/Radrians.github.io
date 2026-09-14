@@ -115,10 +115,10 @@ html[data-theme="light"]{
 --text-faint:#8a8072;
 
 /* ---- ACCENT (the rust-red highlight color) ---- */
---accent:#a83a26;
---accent-hover:#8f2f1e;
---accent-soft:rgba(168,58,38,.10);
---accent-border:rgba(168,58,38,.35);
+--accent:#b1402a;
+--accent-hover:#c9503a;
+--accent-soft:rgba(177,64,42,.14);
+--accent-border:rgba(177,64,42,.4);
 
 /* ---- HEADER BAR ---- */
 --header-bg:rgba(244,239,230,.88);
