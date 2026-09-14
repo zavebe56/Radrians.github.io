@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Gallery | ESTERASUL</title>
+
+
+
+<link rel="stylesheet" href="test.css">
+
+</head>
+
+<body>
+
+<div class="page">
+
+<header>
+
+<a href="index.html" class="logo">
+
+<div class="logo-symbol">R</div>
+
+<div>
+
+<h1>ESTERASUL</h1>
+<span>Radrian Archive</span>
+
+</div>
+
+</a>
+
+<nav>
+
+<ul>
+
+<li><a href="index.html">HOME</a></li>
+
+<li><a href="species.html">SPECIES</a></li>
+
+<li><a href="subspecies.html">SUBSPECIES</a></li>
+
+<li><a href="anatomy.html">ANATOMY</a></li>
+
+<li><a href="world.html">WORLD</a></li>
+
+<li><a href="fauna.html">FAUNA</a></li>
+
+<li><a href="language.html">LANGUAGE</a></li>
+
+<li><a href="discoveries.html">DISCOVERIES</a></li>
+
+<li><a href="gallery.html" class="active">GALLERY</a></li>
+
+</ul>
+
+</nav>
+
+</header>
+
+<section class="hero page-hero" style="background-image:url('assets/camp.jpg');">
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+
+        <span class="hero-small">The Archive</span>
+
+        <h2>Gallery</h2>
+
+        <h3>Illustrations &amp; records</h3>
+
+        <div class="hero-divider"></div>
+
+        <p>The archive's visual reference collection, added to as new art is recorded.</p>
+
+        
+
+    </div>
+
+</section>
+
+<section class="page-intro">
+
+<span class="eyebrow">Visual Archive</span>
+
+<p>
+The current reference set. More illustrations are added to the
+archive as they're recorded &mdash; each frame holds a single piece with
+its caption.
+</p>
+
+</section>
+
+<section class="gallery-grid" style="margin-top:32px;">
+
+<div class="gallery-item">
+
+<img src="assets/hunt.jpg" alt="The Hunt">
+
+<div class="gallery-caption">The Hunt<span>Field study &middot; Forest clan hunting party</span></div>
+
+</div>
+
+<div class="gallery-item">
+
+<img src="assets/camp.jpg" alt="Szałasy">
+
+<div class="gallery-caption">Szałasy<span>Field study &middot; A Mountain clan camp</span></div>
+
+</div>
+
+<div class="gallery-item">
+
+<img src="assets/grove.jpg" alt="The Grove Gathering">
+
+<div class="gallery-caption">The Grove Gathering<span>Field study &middot; Rest between hunts</span></div>
+
+</div>
+
+</section>
+
+<footer>
+
+<div class="footer-links">
+<a href="index.html">Home</a>
+<a href="species.html">Species</a>
+<a href="subspecies.html">Subspecies</a>
+<a href="anatomy.html">Anatomy</a>
+<a href="world.html">World</a>
+<a href="fauna.html">Fauna</a>
+<a href="language.html">Language</a>
+<a href="discoveries.html">Discoveries</a>
+<a href="gallery.html">Gallery</a>
+</div>
+
+<p>ESTERASUL &mdash; THE RADRIAN ARCHIVE</p>
+
+</footer>
+
+</div>
+
+<script>
+document.querySelectorAll('.box-grid').forEach(function(grid){
+    var cards = grid.querySelectorAll('details.info-box');
+    cards.forEach(function(card){
+        card.addEventListener('toggle', function(){
+            if(card.open){
+                cards.forEach(function(other){
+                    if(other !== card) other.open = false;
+                });
+                setTimeout(function(){
+                    card.scrollIntoView({behavior:'smooth', block:'start'});
+                }, 60);
+            }
+        });
+    });
+});
+</script>
+
+</body>
+</html>

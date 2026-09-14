@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>World | ESTERASUL</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="test.css">
+
+</head>
+
+<body>
+
+<!-- SIDE DECORATIONS -->
+
+<div class="side-decoration left-decoration">
+
+    ✦<br>
+    ◈<br>
+    ❖<br>
+    ◈<br>
+    ✦
+
+</div>
+
+<div class="side-decoration right-decoration">
+
+    ✦<br>
+    ◈<br>
+    ❖<br>
+    ◈<br>
+    ✦
+
+</div>
+
+<div class="page">
+
+<header>
+
+<div class="logo">
+
+<div class="logo-symbol">✦</div>
+
+<div>
+
+<h1>ESTERASUL - RADRIANS</h1>
+<span>ORIGINAL OPEN SPECIES</span>
+
+</div>
+
+</div>
+
+<nav>
+
+<ul>
+
+<li><a href="index.html">HOME</a></li>
+
+<li><a href="species.html">SPECIES</a></li>
+
+<li><a href="subspecies.html">SUBSPECIES</a></li>
+
+<li><a href="anatomy.html">ANATOMY</a></li>
+
+<li><a href="world.html" class="active">WORLD</a></li>
+
+<li><a href="fauna.html">FAUNA</a></li>
+
+<li><a href="discoveries.html">DISCOVERIES</a></li>
+
+<li><a href="gallery.html">GALLERY</a></li>
+
+</ul>
+
+</nav>
+
+</header>
+
+<section class="hero page-hero">
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-circle"></div>
+
+    <div class="hero-content">
+
+        <span class="hero-small">THE ARCHIVE</span>
+
+        <h2>WORLD</h2>
+
+        <h3>Regions &amp; ecology</h3>
+
+        <div class="hero-divider"></div>
+
+        <p>Esterasul in full — the five major regions that shape every Radrian clan, and the wider ecology they share with the world's fauna.</p>
+
+    </div>
+
+</section>
+
+<section class="page-intro">
+
+<span class="eyebrow">GEOGRAPHY</span>
+
+<p>
+Esterasul is a single continent split into five distinct biomes, each
+of which gave rise to one or two Radrian subspecies. Clans rarely
+cross into a neighbouring region permanently, though seasonal
+migration along the borders is common and often celebrated.
+</p>
+
+</section>
+
+<section style="margin-top:35px;">
+
+<div class="world-map">
+
+<svg viewBox="0 0 1000 620" class="map-svg" xmlns="http://www.w3.org/2000/svg">
+
+<path class="map-region" d="M 60 240 L 280 220 L 380 260 L 360 420 L 260 480 L 100 460 L 40 350 Z" data-region="emberwood"></path><path class="map-region" d="M 160 40 L 340 30 L 420 140 L 380 230 L 260 250 L 150 180 L 100 90 Z" data-region="hollowpeaks"></path><path class="map-region" d="M 280 420 L 420 400 L 560 440 L 580 560 L 420 590 L 280 560 L 230 480 Z" data-region="marrowfen"></path><path class="map-region" d="M 580 230 L 900 250 L 950 420 L 880 560 L 620 580 L 560 460 L 560 340 Z" data-region="sunreach"></path><path class="map-region" d="M 600 30 L 930 20 L 960 180 L 880 260 L 680 240 L 580 140 Z" data-region="glassfrost"></path>
+
+<text class="map-label" x="250" y="312" text-anchor="middle">The Emberwood</text><text class="map-label" x="260" y="102" text-anchor="middle">The Hollow Peaks</text><text class="map-label" x="400" y="472" text-anchor="middle">The Marrowfen Marshes</text><text class="map-label" x="760" y="382" text-anchor="middle">The Sunreach Dunes &amp; Shore</text><text class="map-label" x="790" y="102" text-anchor="middle">The Glassfrost Tundra</text>
+
+<g class="map-marker" data-region="emberwood" tabindex="0" role="button" aria-label="The Emberwood">
+<circle class="marker-ring" cx="250" cy="340" r="18"></circle>
+<circle class="marker-dot" cx="250" cy="340" r="7"></circle>
+</g><g class="map-marker" data-region="hollowpeaks" tabindex="0" role="button" aria-label="The Hollow Peaks">
+<circle class="marker-ring" cx="260" cy="130" r="18"></circle>
+<circle class="marker-dot" cx="260" cy="130" r="7"></circle>
+</g><g class="map-marker" data-region="marrowfen" tabindex="0" role="button" aria-label="The Marrowfen Marshes">
+<circle class="marker-ring" cx="400" cy="500" r="18"></circle>
+<circle class="marker-dot" cx="400" cy="500" r="7"></circle>
+</g><g class="map-marker" data-region="sunreach" tabindex="0" role="button" aria-label="The Sunreach Dunes &amp; Shore">
+<circle class="marker-ring" cx="760" cy="410" r="18"></circle>
+<circle class="marker-dot" cx="760" cy="410" r="7"></circle>
+</g><g class="map-marker" data-region="glassfrost" tabindex="0" role="button" aria-label="The Glassfrost Tundra">
+<circle class="marker-ring" cx="790" cy="130" r="18"></circle>
+<circle class="marker-dot" cx="790" cy="130" r="7"></circle>
+</g>
+
+</svg>
+
+<p class="map-hint">CLICK A MARKER TO EXPLORE A REGION</p>
+
+</div>
+
+<div class="map-info" id="mapInfo">
+
+<div class="map-info-image" id="mapInfoImage"></div>
+
+<div class="map-info-body">
+
+<span class="box-tag">REGION</span>
+
+<h3 id="mapInfoTitle">Select a region</h3>
+
+<p id="mapInfoDesc">Click any marker on the map above to read about that region of Esterasul.</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="box-grid" style="margin-top:55px;">
+
+<div class="section-heading" style="grid-column:1/-1;">
+<h2>Region Entries</h2>
+<div class="rule"></div>
+</div>
+
+<details class="info-box" id="emberwood">
+
+<summary>
+
+<div class="box-image img-a">❈</div>
+
+<div class="box-body">
+
+<span class="box-tag">REGION</span>
+
+<h3>The Emberwood</h3>
+
+<p>Home of the Forest clans. A dense, dark-fir forest where light rarely reaches the ground and szałasy shelters are built into natural hollows.</p>
+
+
+
+<div class="box-toggle">
+<span class="toggle-mark">＋</span>
+<span class="toggle-text-closed">Read full entry</span>
+<span class="toggle-text-open">Collapse entry</span>
+</div>
+
+</div>
+
+</summary>
+
+<div class="box-expand">
+
+<div class="expand-text">
+
+<p>The Emberwood is a dense, dark-fir forest so thick in places that light barely reaches the ground even at midday. It's the ancestral home of the Radrian species according to Esterasul's founding myth, and remains the territory of the Forest clans, whose szałasy shelters are built low and half-buried into natural hollows between the roots.</p>
+
+<p>The forest floor hosts the Duskhare, kept in loose semi-domestication by Forest clans, as well as the solitary Emberlynx, the region's main natural predator.</p>
+
+</div>
+
+<div class="expand-image img-b"></div>
+
+</div>
+
+</details>
+
+<details class="info-box" id="hollowpeaks">
+
+<summary>
+
+<div class="box-image ">▲</div>
+
+<div class="box-body">
+
+<span class="box-tag">REGION</span>
+
+<h3>The Hollow Peaks</h3>
+
+<p>A cold, wind-scoured mountain range home to Mountain clans, riddled with caves that give the range its name.</p>
+
+
+
+<div class="box-toggle">
+<span class="toggle-mark">＋</span>
+<span class="toggle-text-closed">Read full entry</span>
+<span class="toggle-text-open">Collapse entry</span>
+</div>
+
+</div>
+
+</summary>
+
+<div class="box-expand">
+
+<div class="expand-text">
+
+<p>The Hollow Peaks are a cold, wind-scoured mountain range riddled with caves — the source of the region's name — fiercely contested between Mountain clans and the territorial Stonehide Boar. Shelter here is scarce enough that Mountain clans hold some of the smallest, most tightly defended territories of any Radrian population.</p>
+
+<p>Snow covers the higher trails for most of the year, and the compact, blunt-crowned Mountain Radrian is built specifically to move through it without injury.</p>
+
+</div>
+
+<div class="expand-image img-c"></div>
+
+</div>
+
+</details>
+
+<details class="info-box" id="marrowfen">
+
+<summary>
+
+<div class="box-image img-b">❖</div>
+
+<div class="box-body">
+
+<span class="box-tag">REGION</span>
+
+<h3>The Marrowfen Marshes</h3>
+
+<p>A slow, reed-choked wetland where Marsh clans cultivate hanging moss gardens along raised walkways.</p>
+
+
+
+<div class="box-toggle">
+<span class="toggle-mark">＋</span>
+<span class="toggle-text-closed">Read full entry</span>
+<span class="toggle-text-open">Collapse entry</span>
+</div>
+
+</div>
+
+</summary>
+
+<div class="box-expand">
+
+<div class="expand-text">
+
+<p>The Marrowfen is a slow, reed-choked wetland crossed by raised walkways that Marsh clans rebuild each year as the ground shifts beneath them. Hanging moss gardens grown along these walkways feed the region's enormous Glimmermoth swarms, which light the marsh at dusk and double as an informal seasonal calendar for the clans here.</p>
+
+<p>The gentle, revered Mossback Turtle-Stag also calls the Marrowfen home, considered good luck whenever one is sighted near a calving ground.</p>
+
+</div>
+
+<div class="expand-image img-a"></div>
+
+</div>
+
+</details>
+
+<details class="info-box" id="sunreach">
+
+<summary>
+
+<div class="box-image ">◉</div>
+
+<div class="box-body">
+
+<span class="box-tag">REGION</span>
+
+<h3>The Sunreach Dunes &amp; Shore</h3>
+
+<p>A stretch of coastline and interior desert shared by both Coastal and Sunreach clans, divided by a line of salt cliffs.</p>
+
+
+
+<div class="box-toggle">
+<span class="toggle-mark">＋</span>
+<span class="toggle-text-closed">Read full entry</span>
+<span class="toggle-text-open">Collapse entry</span>
+</div>
+
+</div>
+
+</summary>
+
+<div class="box-expand">
+
+<div class="expand-text">
+
+<p>The Sunreach region stretches from a wind-scoured coastline to a dry interior of open dunes, split by a long line of salt cliffs. Coastal clans work the shoreline, migrating with the tidecrab harvest, while Sunreach clans range through the hotter interior, foraging root vegetables and the occasional fast-moving Sandrunner Lizard.</p>
+
+<p>The two populations meet and mix most often along the salt cliffs themselves, which is why crowns blending traits of both subspecies are most commonly recorded in exactly that border stretch.</p>
+
+</div>
+
+<div class="expand-image img-c"></div>
+
+</div>
+
+</details>
+
+<details class="info-box" id="glassfrost">
+
+<summary>
+
+<div class="box-image img-a">✦</div>
+
+<div class="box-body">
+
+<span class="box-tag">REGION</span>
+
+<h3>The Glassfrost Tundra</h3>
+
+<p>An open ice plain where Tundra clans travel in long seasonal migrations, their calls carrying for miles across the flat white.</p>
+
+
+
+<div class="box-toggle">
+<span class="toggle-mark">＋</span>
+<span class="toggle-text-closed">Read full entry</span>
+<span class="toggle-text-open">Collapse entry</span>
+</div>
+
+</div>
+
+</summary>
+
+<div class="box-expand">
+
+<div class="expand-text">
+
+<p>The Glassfrost is a vast, open ice plain offering almost no natural cover, which is why Tundra clans migrate in unusually large, tightly coordinated groups — the surest defence against the Frostfang Wolf packs that hunt here. A Tundra Radrian's resonant call, audible for miles across the flat ice, was built for exactly this landscape.</p>
+
+<p>Winters on the Glassfrost are the harshest in Esterasul, and the region's Radrians are correspondingly the largest and heaviest-coated of all six subspecies.</p>
+
+</div>
+
+<div class="expand-image img-b"></div>
+
+</div>
+
+</details>
+
+</section>
+
+<section style="margin-top:55px;">
+
+<div class="text-panel">
+
+<h2>Shared Ecology</h2>
+
+<p>
+Radrians are not alone in Esterasul. Every region hosts its own fauna —
+some hunted, some kept, some simply coexisting alongside the clans.
+The Fauna archive documents these species in detail, region by region.
+</p>
+
+<div class="pill-list">
+<span>The Emberwood</span>
+<span>The Hollow Peaks</span>
+<span>The Marrowfen Marshes</span>
+<span>The Sunreach Dunes &amp; Shore</span>
+<span>The Glassfrost Tundra</span>
+</div>
+
+<a href="fauna.html" class="main-button">BROWSE THE FAUNA →</a>
+
+</div>
+
+</section>
+
+<script>
+(function(){
+    var regionData = {"emberwood": {"name": "The Emberwood", "desc": "Home of the Forest clans. A dense, dark-fir forest where light rarely reaches the ground and sza\u0142asy shelters are built into natural hollows.", "image": "https://radrians.neocities.org/sza\u0142asy.jpg"}, "hollowpeaks": {"name": "The Hollow Peaks", "desc": "A cold, wind-scoured mountain range home to Mountain clans, riddled with caves that give the range its name.", "image": "https://radrians.neocities.org/chcesz%20hotdoga%20znak%20zapytania.jpg"}, "marrowfen": {"name": "The Marrowfen Marshes", "desc": "A slow, reed-choked wetland where Marsh clans cultivate hanging moss gardens along raised walkways.", "image": "https://radrians.neocities.org/the%20hunt.jpg"}, "sunreach": {"name": "The Sunreach Dunes & Shore", "desc": "A stretch of coastline and interior desert shared by both Coastal and Sunreach clans, divided by a line of salt cliffs.", "image": "https://radrians.neocities.org/chcesz%20hotdoga%20znak%20zapytania.jpg"}, "glassfrost": {"name": "The Glassfrost Tundra", "desc": "An open ice plain where Tundra clans travel in long seasonal migrations, their calls carrying for miles across the flat white.", "image": "https://radrians.neocities.org/sza\u0142asy.jpg"}};
+    var markers = document.querySelectorAll('.map-marker');
+    var regionShapes = document.querySelectorAll('.map-region');
+    var titleEl = document.getElementById('mapInfoTitle');
+    var descEl = document.getElementById('mapInfoDesc');
+    var imageEl = document.getElementById('mapInfoImage');
+
+    function selectRegion(id){
+        var data = regionData[id];
+        if(!data) return;
+        markers.forEach(function(m){ m.classList.toggle('active', m.getAttribute('data-region') === id); });
+        titleEl.textContent = data.name;
+        descEl.textContent = data.desc;
+        imageEl.style.backgroundImage = "url('" + data.image + "')";
+        imageEl.style.backgroundSize = "cover";
+        imageEl.style.backgroundPosition = "center";
+    }
+
+    markers.forEach(function(marker){
+        var id = marker.getAttribute('data-region');
+        marker.addEventListener('click', function(){ selectRegion(id); });
+        marker.addEventListener('keydown', function(e){
+            if(e.key === 'Enter' || e.key === ' '){
+                e.preventDefault();
+                selectRegion(id);
+            }
+        });
+    });
+
+    regionShapes.forEach(function(shape){
+        shape.addEventListener('click', function(){
+            selectRegion(shape.getAttribute('data-region'));
+        });
+    });
+})();
+</script>
+
+<footer>
+
+<div class="footer-links">
+<a href="index.html">Home</a>
+<a href="species.html">Species</a>
+<a href="subspecies.html">Subspecies</a>
+<a href="anatomy.html">Anatomy</a>
+<a href="world.html">World</a>
+<a href="fauna.html">Fauna</a>
+<a href="discoveries.html">Discoveries</a>
+<a href="gallery.html">Gallery</a>
+</div>
+
+<p>◈ ESTERASUL — THE RADRIAN ARCHIVE ◈</p>
+
+</footer>
+
+</div>
+
+</body>
+</html>
