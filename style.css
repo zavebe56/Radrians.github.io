@@ -5,7 +5,7 @@
    =========================================================
 
    ---------------------------------------------------------
-   HOW TO CUSTOMIZE THIS FILE — QUICK GUIDEh
+   HOW TO CUSTOMIZE THIS FILE — QUICK GUIDE
    ---------------------------------------------------------
 
    1) COLORS
@@ -1512,10 +1512,10 @@ footer p{
    ========================================================= */
 
 /* Places the map and its region-info panel side by side. The
-   map takes a fixed, smaller column (340px below — change that
-   number to resize the map) and the info panel fills the rest
-   of the row, so the description appears directly beside the
-   map once a marker is clicked. */
+   map takes a fixed column (560px below — change that number to
+   resize the map) and the info panel fills the rest of the row.
+   No align-items here (defaults to stretch) so the info panel
+   grows to match the map's full height. */
 .map-layout{
 
     display:grid;
@@ -1523,8 +1523,6 @@ footer p{
     grid-template-columns:560px 1fr;
 
     gap:24px;
-
-    align-items:start;
 }
 
 .world-map{
@@ -1663,9 +1661,9 @@ footer p{
  
     border:1px solid var(--border);
  
-    display:grid;
+    display:flex;
  
-    grid-template-columns:220px 1fr;
+    flex-direction:column;
  
     min-height:220px;
 }
@@ -1678,7 +1676,9 @@ footer p{
  
     background-color:var(--bg-soft);
  
-    min-height:220px;
+    height:300px;
+ 
+    flex-shrink:0;
 }
  
 .map-info-body{
@@ -1690,6 +1690,8 @@ footer p{
     flex-direction:column;
  
     justify-content:center;
+ 
+    flex:1;
 }
  
 .map-info-body h3{
@@ -1729,10 +1731,6 @@ footer p{
 }
 
 @media(max-width:700px){
- 
-    .map-info{
-        grid-template-columns:1fr;
-    }
  
     .map-info-image{
         height:200px;
