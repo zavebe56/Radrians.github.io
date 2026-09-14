@@ -436,9 +436,9 @@ nav a.active{
     linear-gradient(
         100deg,
         rgba(9,8,7,.94) 5%,
-        rgba(9,8,7,.78) 40%,
-        rgba(9,8,7,.55) 75%,
-        rgba(9,8,7,.82) 100%
+        rgba(9,8,7,.78) 10%,
+        rgba(9,8,7,.55) 20%,
+        rgba(9,8,7,.82) 35%
     );
 
     z-index:1;
