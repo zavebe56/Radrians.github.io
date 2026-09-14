@@ -1510,7 +1510,23 @@ footer p{
    world.html for how to move or add one. This CSS only controls
    how the image and dots look.
    ========================================================= */
- 
+
+/* Places the map and its region-info panel side by side. The
+   map takes a fixed, smaller column (340px below — change that
+   number to resize the map) and the info panel fills the rest
+   of the row, so the description appears directly beside the
+   map once a marker is clicked. */
+.map-layout{
+
+    display:grid;
+
+    grid-template-columns:340px 1fr;
+
+    gap:24px;
+
+    align-items:start;
+}
+
 .world-map{
  
     background:var(--panel);
@@ -1641,7 +1657,7 @@ footer p{
  
 .map-info{
  
-    margin-top:20px;
+    margin-top:0;
  
     background:var(--panel);
  
@@ -1649,7 +1665,7 @@ footer p{
  
     display:grid;
  
-    grid-template-columns:280px 1fr;
+    grid-template-columns:220px 1fr;
  
     min-height:220px;
 }
@@ -1698,6 +1714,20 @@ footer p{
     color:var(--text-muted);
 }
  
+@media(max-width:900px){
+
+    .map-layout{
+        grid-template-columns:1fr;
+    }
+
+    .world-map{
+        max-width:420px;
+
+        margin:0 auto;
+    }
+
+}
+
 @media(max-width:700px){
  
     .map-info{
