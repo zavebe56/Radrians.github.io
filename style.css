@@ -2,62 +2,125 @@
    ESTERASUL — RADRIAN ARCHIVE
    Professional theme, matched to the reference artwork:
    charcoal / bone / rust-red, editorial serif + clean sans.
+   =========================================================
+
+   ---------------------------------------------------------
+   HOW TO CUSTOMIZE THIS FILE — QUICK GUIDE
+   ---------------------------------------------------------
+
+   1) COLORS
+      All colors live as CSS variables in the ":root{...}" block
+      just below this comment (dark theme), and again in the
+      "html[data-theme=\"light\"]{...}" block right after it
+      (light theme). Change a color ONCE in each of those two
+      blocks and it updates everywhere on every page, because
+      every rule in this file references var(--name) instead
+      of a hard-coded color. Each variable is explained inline
+      below.
+
+   2) FONTS
+      Two fonts are loaded on the @import line directly under
+      this comment: "Fraunces" (the serif used for all
+      headings — h1/h2/h3, box titles, logo) and "Inter" (the
+      sans-serif used for body text, nav, tags, buttons). To
+      change either font:
+        a. Swap the font name(s) in the @import URL below to a
+           font from https://fonts.google.com
+        b. Update --font-head and/or --font-body inside :root
+           to the new font name.
+      Font SIZE for a given element (e.g. hero title, box
+      heading) is set individually where that element is
+      styled further down this file — search for the class
+      name (e.g. ".hero-content h2") to adjust just that one.
+
+   3) BOX / HEADER BACKGROUND IMAGES
+      Background images for the hero banner at the top of each
+      page and for every expandable box are NOT set in this
+      CSS file — they're set per-page, directly in the HTML,
+      using a style="background-image:url('...')" attribute.
+      This file only controls how those images are framed
+      (size, position, height, overlay darkness). See the
+      ".hero", ".box-image", and ".expand-image" sections
+      further down for those framing rules. Open any .html
+      file and search for "background-image" to find every
+      spot you can drop in your own picture — each one has a
+      comment above it telling you what it's for.
    ========================================================= */
 
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap');
 
 :root{
 
---bg:#0c0b0a;
---bg-soft:#131110;
+/* ---- BACKGROUNDS ---- */
+--bg:#0c0b0a;              /* page background (behind everything) */
+--bg-soft:#131110;         /* slightly lighter background, used behind empty image boxes */
 
---panel:#161412;
---panel-hover:#1c1a17;
+/* ---- PANELS (box/card backgrounds) ---- */
+--panel:#161412;           /* background of boxes, cards, the side menu, text panels */
+--panel-hover:#1c1a17;     /* box background on mouse hover */
 
---border:rgba(233,225,213,.10);
---border-strong:rgba(233,225,213,.20);
+/* ---- BORDERS / DIVIDER LINES ---- */
+--border:rgba(233,225,213,.10);         /* thin, subtle lines between boxes/sections */
+--border-strong:rgba(233,225,213,.20);  /* slightly more visible lines (pills, buttons) */
 
---text:#e7e1d6;
---text-muted:#a79e91;
---text-faint:#787064;
+/* ---- TEXT COLORS ---- */
+--text:#e7e1d6;         /* main/heading text color */
+--text-muted:#a79e91;   /* paragraph / body text color */
+--text-faint:#787064;   /* smallest, least important text (labels, hints) */
 
---accent:#b1402a;
---accent-hover:#c9503a;
---accent-soft:rgba(177,64,42,.14);
---accent-border:rgba(177,64,42,.4);
+/* ---- ACCENT (the rust-red highlight color) ---- */
+--accent:#b1402a;                       /* buttons, dividers, active nav underline */
+--accent-hover:#c9503a;                 /* tags, links, hover state of accent elements */
+--accent-soft:rgba(177,64,42,.14);      /* faint accent tint, e.g. active side-menu row */
+--accent-border:rgba(177,64,42,.4);     /* accent-colored border, currently unused directly */
 
---font-head:'Fraunces', Georgia, serif;
---font-body:'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+/* ---- FONTS ----
+   Change the font NAME here to switch fonts site-wide.
+   Remember to also update the @import line above if you pick
+   a font that isn't Fraunces/Inter from Google Fonts. */
+--font-head:'Fraunces', Georgia, serif;                              /* all headings + box titles */
+--font-body:'Inter', -apple-system, BlinkMacSystemFont, sans-serif;  /* body text, nav, buttons */
 
---header-bg:rgba(12,11,10,.86);
+/* ---- HEADER BAR ---- */
+--header-bg:rgba(12,11,10,.86);  /* the sticky top nav bar's background + transparency */
 
 }
 
 /* =========================================================
    LIGHT THEME
-   Toggled via [data-theme="light"] on <html>, see site.js
+   Toggled via [data-theme="light"] on <html>, see site.js.
+   This is the SAME list of variables as the :root block
+   above, just with light-mode values. If you change a color
+   up in :root, come down here and set its light-mode
+   equivalent too, or the theme toggle will look inconsistent.
    ========================================================= */
 
 html[data-theme="light"]{
 
+/* ---- BACKGROUNDS ---- */
 --bg:#f4efe6;
 --bg-soft:#ece5d8;
 
+/* ---- PANELS (box/card backgrounds) ---- */
 --panel:#fffdfa;
 --panel-hover:#f6f1e9;
 
+/* ---- BORDERS / DIVIDER LINES ---- */
 --border:rgba(35,29,22,.10);
 --border-strong:rgba(35,29,22,.22);
 
+/* ---- TEXT COLORS ---- */
 --text:#241f19;
 --text-muted:#5c5347;
 --text-faint:#8a8072;
 
+/* ---- ACCENT (the rust-red highlight color) ---- */
 --accent:#a83a26;
 --accent-hover:#8f2f1e;
 --accent-soft:rgba(168,58,38,.10);
 --accent-border:rgba(168,58,38,.35);
 
+/* ---- HEADER BAR ---- */
 --header-bg:rgba(244,239,230,.88);
 
 }
@@ -323,13 +386,23 @@ nav a.active{
 
 }
 
-/* HERO */
+/* =========================================================
+   HERO (the big banner at the top of every page)
+   The actual image is set in the HTML with a
+   style="background-image:url('...')" attribute on the
+   <section class="hero page-hero"> tag — this CSS block only
+   controls its size/shape. min-height controls how tall the
+   banner is; the .page-hero rule below makes inner pages
+   (everything except the homepage) shorter than the homepage
+   hero. The dark gradient over the image is set separately in
+   .hero-overlay just below.
+   ========================================================= */
 
 .hero{
 
     position:relative;
 
-    min-height:520px;
+    min-height:520px;      /* homepage hero height */
 
     display:flex;
 
@@ -344,9 +417,15 @@ nav a.active{
 }
 
 .hero.page-hero{
-    min-height:280px;
+    min-height:280px;      /* inner-page hero height (Species, World, etc.) */
 }
 
+/* Darkens the hero background image so the white heading text
+   stays readable. The four numbers ending in a percent are how
+   far across the banner each shade reaches; the ",.94" / ",.78"
+   etc. numbers are opacity (0 = see-through, 1 = solid black).
+   If your custom image is busy or light-colored, raise these
+   opacity numbers a bit for better text contrast. */
 .hero-overlay{
 
     position:absolute;
@@ -646,6 +725,9 @@ color:var(--text-muted);
     padding:0;
 }
 
+/* Large decorative image panel on the homepage, set in
+   index.html with style="background-image:url('...')" on the
+   <div class="showcase-image">. */
 .showcase-image{
 
 height:100%;
@@ -1041,19 +1123,31 @@ footer p{
     }
 }
 
+/* =========================================================
+   BOX IMAGE (the picture shown on a collapsed/closed card)
+   Set the actual picture per-box in the HTML, e.g.:
+     <div class="box-image" style="background-image:url('assets/your-image.jpg');">
+   If you leave the style attribute off (or the url empty),
+   the box just shows the plain --bg-soft color underneath —
+   that's fine, it's not required to have an image on every box.
+   ========================================================= */
+
 .box-image{
 
-    height:200px;
+    height:200px;                    /* how tall the image area is when the card is closed */
 
     background-size:cover;
 
     background-position:center;
 
-    background-color:var(--bg-soft);
+    background-color:var(--bg-soft); /* shown if no image is set */
 
     position:relative;
 }
 
+/* Subtle dark fade at the bottom of the box image, purely
+   decorative — safe to delete this whole rule if you don't
+   want it. */
 .box-image::after{
 
     content:"";
@@ -1213,6 +1307,11 @@ footer p{
     margin-bottom:0;
 }
 
+/* Picture shown beside the text once a card is OPENED/expanded.
+   Set it the same way as .box-image, e.g.:
+     <div class="expand-image" style="background-image:url('assets/your-image-full.jpg');">
+   This can be the same image as the box-image, or a different,
+   larger one — entirely up to you. */
 .expand-image{
 
     min-height:200px;

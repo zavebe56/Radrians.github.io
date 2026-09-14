@@ -61,7 +61,8 @@
 </header>
 
 
-<section class="hero page-hero">
+<!-- Page hero background image: add a url inside the empty quotes below, e.g. style="background-image:url('assets/hero-world.jpg');" -->
+<section class="hero page-hero" style="">
 
     <div class="hero-overlay"></div>
 
@@ -158,7 +159,8 @@ migration along the borders is common and often celebrated.
 
 <summary>
 
-<div class="box-image img-a">❈</div>
+<!-- Custom image for this box: add style="background-image:url('assets/emberwood.jpg');" to the div below. The symbol (❈) shows as a placeholder until you do. -->
+<div class="box-image">❈</div>
 
 <div class="box-body">
 
@@ -190,7 +192,8 @@ migration along the borders is common and often celebrated.
 
 </div>
 
-<div class="expand-image img-b"></div>
+<!-- Larger custom image shown when this box is expanded: add style="background-image:url('assets/emberwood-full.jpg');" to the div below. -->
+<div class="expand-image"></div>
 
 </div>
 
@@ -200,7 +203,8 @@ migration along the borders is common and often celebrated.
 
 <summary>
 
-<div class="box-image ">▲</div>
+<!-- Custom image for this box: add style="background-image:url('assets/hollowpeaks.jpg');" to the div below. The symbol (▲) shows as a placeholder until you do. -->
+<div class="box-image">▲</div>
 
 <div class="box-body">
 
@@ -232,7 +236,8 @@ migration along the borders is common and often celebrated.
 
 </div>
 
-<div class="expand-image img-c"></div>
+<!-- Larger custom image shown when this box is expanded: add style="background-image:url('assets/hollowpeaks-full.jpg');" to the div below. -->
+<div class="expand-image"></div>
 
 </div>
 
@@ -242,7 +247,8 @@ migration along the borders is common and often celebrated.
 
 <summary>
 
-<div class="box-image img-b">❖</div>
+<!-- Custom image for this box: add style="background-image:url('assets/marrowfen.jpg');" to the div below. The symbol (❖) shows as a placeholder until you do. -->
+<div class="box-image">❖</div>
 
 <div class="box-body">
 
@@ -274,7 +280,8 @@ migration along the borders is common and often celebrated.
 
 </div>
 
-<div class="expand-image img-a"></div>
+<!-- Larger custom image shown when this box is expanded: add style="background-image:url('assets/marrowfen-full.jpg');" to the div below. -->
+<div class="expand-image"></div>
 
 </div>
 
@@ -284,7 +291,8 @@ migration along the borders is common and often celebrated.
 
 <summary>
 
-<div class="box-image ">◉</div>
+<!-- Custom image for this box: add style="background-image:url('assets/sunreach.jpg');" to the div below. The symbol (◉) shows as a placeholder until you do. -->
+<div class="box-image">◉</div>
 
 <div class="box-body">
 
@@ -316,7 +324,8 @@ migration along the borders is common and often celebrated.
 
 </div>
 
-<div class="expand-image img-c"></div>
+<!-- Larger custom image shown when this box is expanded: add style="background-image:url('assets/sunreach-full.jpg');" to the div below. -->
+<div class="expand-image"></div>
 
 </div>
 
@@ -326,7 +335,8 @@ migration along the borders is common and often celebrated.
 
 <summary>
 
-<div class="box-image img-a">✦</div>
+<!-- Custom image for this box: add style="background-image:url('assets/glassfrost.jpg');" to the div below. The symbol (✦) shows as a placeholder until you do. -->
+<div class="box-image">✦</div>
 
 <div class="box-body">
 
@@ -358,7 +368,8 @@ migration along the borders is common and often celebrated.
 
 </div>
 
-<div class="expand-image img-b"></div>
+<!-- Larger custom image shown when this box is expanded: add style="background-image:url('assets/glassfrost-full.jpg');" to the div below. -->
+<div class="expand-image"></div>
 
 </div>
 
@@ -394,6 +405,10 @@ The Fauna archive documents these species in detail, region by region.
 
 <script>
 (function(){
+    // Interactive map images: each region below has an "image" field —
+    // that's the picture shown in the info panel when you click its
+    // marker on the map. Replace any of these URLs with your own image
+    // link (or a local path like "assets/emberwood-map.jpg") to change it.
     var regionData = {"emberwood": {"name": "The Emberwood", "desc": "Home of the Forest clans. A dense, dark-fir forest where light rarely reaches the ground and sza\u0142asy shelters are built into natural hollows.", "image": "https://radrians.neocities.org/sza\u0142asy.jpg"}, "hollowpeaks": {"name": "The Hollow Peaks", "desc": "A cold, wind-scoured mountain range home to Mountain clans, riddled with caves that give the range its name.", "image": "https://radrians.neocities.org/chcesz%20hotdoga%20znak%20zapytania.jpg"}, "marrowfen": {"name": "The Marrowfen Marshes", "desc": "A slow, reed-choked wetland where Marsh clans cultivate hanging moss gardens along raised walkways.", "image": "https://radrians.neocities.org/the%20hunt.jpg"}, "sunreach": {"name": "The Sunreach Dunes & Shore", "desc": "A stretch of coastline and interior desert shared by both Coastal and Sunreach clans, divided by a line of salt cliffs.", "image": "https://radrians.neocities.org/chcesz%20hotdoga%20znak%20zapytania.jpg"}, "glassfrost": {"name": "The Glassfrost Tundra", "desc": "An open ice plain where Tundra clans travel in long seasonal migrations, their calls carrying for miles across the flat white.", "image": "https://radrians.neocities.org/sza\u0142asy.jpg"}};
     var markers = document.querySelectorAll('.map-marker');
     var regionShapes = document.querySelectorAll('.map-region');
