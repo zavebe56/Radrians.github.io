@@ -21,6 +21,52 @@
 
 <link rel="stylesheet" href="style.css">
 
+<style>
+/* --- Layout override: images sit ABOVE the text instead of behind it as a background --- */
+.info-box.wide summary{
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+}
+.info-box.wide .box-image{
+    position: static !important;
+    width: 100% !important;
+    height: 220px !important;
+    margin: 0 0 1.25rem 0 !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    border-radius: 6px;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    overflow: hidden;
+}
+.info-box.wide .box-body{
+    width: 100% !important;
+}
+.info-box.wide .box-expand{
+    display: flex !important;
+    flex-direction: column !important;
+}
+.info-box.wide .expand-image{
+    order: -1;
+    position: static !important;
+    width: 100% !important;
+    height: 260px !important;
+    margin: 0 0 1.25rem 0 !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    border-radius: 6px;
+    overflow: hidden;
+}
+.info-box.wide .expand-image:empty{
+    display: none;
+}
+</style>
+
 </head>
 
 <body>
@@ -152,7 +198,7 @@ relevant, and cross-referenced on the Subspecies page.
 <summary>
 
 <!-- Custom image for this box: add style="background-image:url('assets/skeleton.jpg');" to the div below. The symbol (❖) shows as a placeholder until you do. -->
-<div class="box-image" style="background-image:url('assets/rad szkice anatomicnze.jpg');" /div>
+<div class="box-image" style="background-image:url('assets/rad szkice anatomicnze.jpg');"></div>
 
 <div class="box-body">
 
@@ -176,6 +222,9 @@ relevant, and cross-referenced on the Subspecies page.
 
 <div class="box-expand">
 
+<!-- Larger custom image shown when this box is expanded: add style="background-image:url('assets/skeleton-full.jpg');" to the div below. -->
+<div class="expand-image"></div>
+
 <div class="expand-text">
 
 <p>Radrian's silhouette immediately stands out as tall, elegant, and distinctly animal-like. Their build is elongated rather than bulky, with long limbs, a long neck, and a long tail that all extend well beyond human proportions. Despite this, they never look fragile. Their frame is supported by wide, squared shoulders and a thick, strong neck, which gives even the leaner subspecies a solid sense of weight and presence.</p>
@@ -189,9 +238,6 @@ relevant, and cross-referenced on the Subspecies page.
 <p>Radrian looks less like a heavily built predator and more like a long-limbed dancer. Their body is lean, poised, and naturally suited to balance and quick movement. The wide shoulders and thick neck keep that elegance from making them look delicate, giving the entire silhouette a strong and grounded presence.</p>
 
 </div>
-
-<!-- Larger custom image shown when this box is expanded: add style="background-image:url('assets/skeleton-full.jpg');" to the div below. -->
-<div class="expand-image"></div>
 
 </div>
 
@@ -226,6 +272,9 @@ relevant, and cross-referenced on the Subspecies page.
 
 <div class="box-expand">
 
+<!-- Larger custom image shown when this box is expanded: add style="background-image:url('assets/crown-full.jpg');" to the div below. -->
+<div class="expand-image"></div>
+
 <div class="expand-text">
 
 <p>Every Radrian crown begins the same way: a soft, velvet-skinned bud that emerges in early spring and hardens into keratin-bone composite over several months. The final shape is influenced by lineage and region, but no two crowns branch identically, making the crown the single most reliable way to identify an individual at a glance.</p>
@@ -233,9 +282,6 @@ relevant, and cross-referenced on the Subspecies page.
 <p>Crowns are shed in late winter, usually within a few days across an entire clan — a synchronised event that keepers and Radrians alike treat as a small seasonal milestone. Regrowth the following spring is typically slightly larger and more complex than the year before, which is why crown size is used informally to estimate age.</p>
 
 </div>
-
-<!-- Larger custom image shown when this box is expanded: add style="background-image:url('assets/crown-full.jpg');" to the div below. -->
-<div class="expand-image"></div>
 
 </div>
 
@@ -270,6 +316,9 @@ relevant, and cross-referenced on the Subspecies page.
 
 <div class="box-expand">
 
+<!-- Larger custom image shown when this box is expanded: add style="background-image:url('assets/pelage-full.jpg');" to the div below. -->
+<div class="expand-image"></div>
+
 <div class="expand-text">
 
 <p>A Radrian's coat is made of two layers: a coarser outer guard hair that sheds water and light, and a softer undercoat that provides insulation. Most subspecies moult this undercoat twice a year, in spring and autumn, while Tundra Radrians retain their thick double coat year-round to survive the Glassfrost's cold.</p>
@@ -277,9 +326,6 @@ relevant, and cross-referenced on the Subspecies page.
 <p>Coloration correlates closely with region — pale and sand-toned along the coast and dunes, deep umber and moss beneath the forest canopy, frost-white on the tundra — which keepers use as a practical starting point when designing a new Radrian's palette, even for mixed-heritage individuals.</p>
 
 </div>
-
-<!-- Larger custom image shown when this box is expanded: add style="background-image:url('assets/pelage-full.jpg');" to the div below. -->
-<div class="expand-image"></div>
 
 </div>
 
@@ -314,6 +360,9 @@ relevant, and cross-referenced on the Subspecies page.
 
 <div class="box-expand">
 
+<!-- Larger custom image shown when this box is expanded: add style="background-image:url('assets/senses-full.jpg');" to the div below. -->
+<div class="expand-image"></div>
+
 <div class="expand-text">
 
 <p>A Radrian's ears rotate almost independently of one another, giving near-360° coverage and making hearing the single sharpest sense across every subspecies. Eyes sit slightly toward the sides of the skull, trading some depth perception directly ahead for an unusually wide overall field of view — useful for spotting predators from nearly any angle.</p>
@@ -321,9 +370,6 @@ relevant, and cross-referenced on the Subspecies page.
 <p>Scent plays an important social role as well as a practical one: clan members recognise one another partly by scent markers left at shelter thresholds, and a stranger's scent is often noticed before they're ever seen.</p>
 
 </div>
-
-<!-- Larger custom image shown when this box is expanded: add style="background-image:url('assets/senses-full.jpg');" to the div below. -->
-<div class="expand-image"></div>
 
 </div>
 
@@ -358,6 +404,9 @@ relevant, and cross-referenced on the Subspecies page.
 
 <div class="box-expand">
 
+<!-- Larger custom image shown when this box is expanded: add style="background-image:url('assets/voice-full.jpg');" to the div below. -->
+<div class="expand-image"></div>
+
 <div class="expand-text">
 
 <p>Vocal communication among Radrians leans low and resonant rather than sharp or high-pitched, well suited to travelling through dense forest or open, wind-scoured terrain alike. Tundra Radrians carry an enlarged vocal chamber that lets their calls travel for miles across the flat ice, a trait unmatched by any other subspecies.</p>
@@ -365,9 +414,6 @@ relevant, and cross-referenced on the Subspecies page.
 <p>Much day-to-day communication happens silently, through ear rotation and the angle at which a Radrian holds its crown — a lowered, forward crown is a common warning posture recognised across every clan, regardless of region.</p>
 
 </div>
-
-<!-- Larger custom image shown when this box is expanded: add style="background-image:url('assets/voice-full.jpg');" to the div below. -->
-<div class="expand-image"></div>
 
 </div>
 
@@ -402,6 +448,9 @@ relevant, and cross-referenced on the Subspecies page.
 
 <div class="box-expand">
 
+<!-- Larger custom image shown when this box is expanded: add style="background-image:url('assets/digestion-full.jpg');" to the div below. -->
+<div class="expand-image"></div>
+
 <div class="expand-text">
 
 <p>Radrians are browsing omnivores with a multi-chambered stomach that ferments tougher plant matter slowly, similar in principle to a ruminant, letting them extract nutrition from bark and lichen that would otherwise be indigestible. Diet shifts noticeably with the seasons and the region a clan calls home.</p>
@@ -409,9 +458,6 @@ relevant, and cross-referenced on the Subspecies page.
 <p>Coastal clans supplement their diet with foraged tide-crab, Sunreach clans rely more heavily on root vegetables and the occasional Sandrunner Lizard, and Marsh clans favour the reeds and tubers native to the Marrowfen. Nothing about the digestive system prevents cross-region diets — it's largely a matter of availability.</p>
 
 </div>
-
-<!-- Larger custom image shown when this box is expanded: add style="background-image:url('assets/digestion-full.jpg');" to the div below. -->
-<div class="expand-image"></div>
 
 </div>
 
@@ -446,6 +492,9 @@ relevant, and cross-referenced on the Subspecies page.
 
 <div class="box-expand">
 
+<!-- Larger custom image shown when this box is expanded: add style="background-image:url('assets/lifecycle-full.jpg');" to the div below. -->
+<div class="expand-image"></div>
+
 <div class="expand-text">
 
 <p>Radrians typically bond for life within their clan, and calves are born in early summer after a gestation of roughly nine months, almost always as a single calf rather than a litter. A newborn calf is mobile within hours but stays close to its bonded family group for the first year.</p>
@@ -453,9 +502,6 @@ relevant, and cross-referenced on the Subspecies page.
 <p>A calf's first crown emerges within that first year as a small, simple bud — nothing like the branching structure it will eventually grow — and is shed and regrown annually from then on, gradually taking on the shape that will identify the individual for the rest of their life.</p>
 
 </div>
-
-<!-- Larger custom image shown when this box is expanded: add style="background-image:url('assets/lifecycle-full.jpg');" to the div below. -->
-<div class="expand-image"></div>
 
 </div>
 
@@ -490,6 +536,9 @@ relevant, and cross-referenced on the Subspecies page.
 
 <div class="box-expand">
 
+<!-- Larger custom image shown when this box is expanded: add style="background-image:url('assets/lifespan-full.jpg');" to the div below. -->
+<div class="expand-image"></div>
+
 <div class="expand-text">
 
 <p>A wild Radrian typically lives between 40 and 60 years, with Mountain and Tundra clans trending toward the higher end thanks to smaller predator pressure at altitude and on the open ice. Crown complexity is the clearest visible marker of age, increasing steadily year over year.</p>
@@ -497,9 +546,6 @@ relevant, and cross-referenced on the Subspecies page.
 <p>By their final decade, an elder Radrian's crown is often so densely branched it resembles a bare winter tree — a look clans treat with particular reverence, and one many keepers deliberately reference when designing an elder character.</p>
 
 </div>
-
-<!-- Larger custom image shown when this box is expanded: add style="background-image:url('assets/lifespan-full.jpg');" to the div below. -->
-<div class="expand-image"></div>
 
 </div>
 
