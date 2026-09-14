@@ -1554,7 +1554,7 @@ footer p{
     overflow:hidden;
 }
  
-/* Each marker is a small invisible button sized 28x28px, centred
+/* Each marker is a small invisible button  sized 28x28px, centred
    exactly on its left/top point (the negative margin does the
    centring so the coordinates line up with the visible dot). */
 .map-marker{
