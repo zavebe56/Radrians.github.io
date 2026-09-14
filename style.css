@@ -53,11 +53,11 @@
 
 /* ---- BACKGROUNDS ---- */
 --bg:#0c0b0a;              /* page background (behind everything) */
---bg-soft:#131110;         /* slightly lighter background, used behind empty image boxes */
+--bg-soft:#2e2b2a;         /* slightly lighter background, used behind empty image boxes */
 
 /* ---- PANELS (box/card backgrounds) ---- */
---panel:#161412;           /* background of boxes, cards, the side menu, text panels */
---panel-hover:#1c1a17;     /* box background on mouse hover */
+--panel:#2e2b2a;           /* background of boxes, cards, the side menu, text panels */
+--panel-hover:#635a56;     /* box background on mouse hover */
 
 /* ---- BORDERS / DIVIDER LINES ---- */
 --border:rgba(233,225,213,.10);         /* thin, subtle lines between boxes/sections */
