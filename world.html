@@ -115,32 +115,56 @@ bullshit
 
 <section style="margin-top:35px;">
 
+<!--
+  MAP IMAGE + MARKER PLACEMENT
+  -----------------------------
+  The map picture is set below as the background of .map-image —
+  swap it for your own by changing the url('assets/map.jpg') path.
+
+  Each clickable dot is one <button class="map-marker">, positioned
+  with "left" and "top" PERCENTAGES measured from the map image's
+  top-left corner (left:0%; top:0%) to its bottom-right corner
+  (left:100%; top:100%).
+
+    - To MOVE a marker: just change its left/top numbers.
+    - To ADD a marker: copy a whole <button>...</button> block below,
+      give it a unique data-region id, then add a matching entry to
+      the regionData object in the <script> further down this page
+      (name, desc, image) so the info panel has something to show.
+    - To REMOVE a marker: delete its <button>...</button> block (and
+      its entry in regionData, and its <details> box further down,
+      if you want it gone from the region list too).
+-->
 <div class="world-map">
 
-<svg viewBox="0 0 1000 620" class="map-svg" xmlns="http://www.w3.org/2000/svg">
+<div class="map-image" style="background-image:url('assets/map.jpg');">
 
-<path class="map-region" d="M 60 240 L 280 220 L 380 260 L 360 420 L 260 480 L 100 460 L 40 350 Z" data-region="emberwood"></path><path class="map-region" d="M 160 40 L 340 30 L 420 140 L 380 230 L 260 250 L 150 180 L 100 90 Z" data-region="hollowpeaks"></path><path class="map-region" d="M 280 420 L 420 400 L 560 440 L 580 560 L 420 590 L 280 560 L 230 480 Z" data-region="marrowfen"></path><path class="map-region" d="M 580 230 L 900 250 L 950 420 L 880 560 L 620 580 L 560 460 L 560 340 Z" data-region="sunreach"></path><path class="map-region" d="M 600 30 L 930 20 L 960 180 L 880 260 L 680 240 L 580 140 Z" data-region="glassfrost"></path>
+<button class="map-marker" data-region="emberwood" type="button" aria-label="The Emberwood" style="left:31%; top:63%;">
+<span class="marker-ring"></span>
+<span class="marker-dot"></span>
+</button>
 
-<text class="map-label" x="250" y="312" text-anchor="middle">The Emberwood</text><text class="map-label" x="260" y="102" text-anchor="middle">The Hollow Peaks</text><text class="map-label" x="400" y="472" text-anchor="middle">The Marrowfen Marshes</text><text class="map-label" x="760" y="382" text-anchor="middle">The Sunreach Dunes &amp; Shore</text><text class="map-label" x="790" y="102" text-anchor="middle">The Glassfrost Tundra</text>
+<button class="map-marker" data-region="hollowpeaks" type="button" aria-label="The Hollow Peaks" style="left:48%; top:20%;">
+<span class="marker-ring"></span>
+<span class="marker-dot"></span>
+</button>
 
-<g class="map-marker" data-region="emberwood" tabindex="0" role="button" aria-label="The Emberwood">
-<circle class="marker-ring" cx="250" cy="340" r="18"></circle>
-<circle class="marker-dot" cx="250" cy="340" r="7"></circle>
-</g><g class="map-marker" data-region="hollowpeaks" tabindex="0" role="button" aria-label="The Hollow Peaks">
-<circle class="marker-ring" cx="260" cy="130" r="18"></circle>
-<circle class="marker-dot" cx="260" cy="130" r="7"></circle>
-</g><g class="map-marker" data-region="marrowfen" tabindex="0" role="button" aria-label="The Marrowfen Marshes">
-<circle class="marker-ring" cx="400" cy="500" r="18"></circle>
-<circle class="marker-dot" cx="400" cy="500" r="7"></circle>
-</g><g class="map-marker" data-region="sunreach" tabindex="0" role="button" aria-label="The Sunreach Dunes &amp; Shore">
-<circle class="marker-ring" cx="760" cy="410" r="18"></circle>
-<circle class="marker-dot" cx="760" cy="410" r="7"></circle>
-</g><g class="map-marker" data-region="glassfrost" tabindex="0" role="button" aria-label="The Glassfrost Tundra">
-<circle class="marker-ring" cx="790" cy="130" r="18"></circle>
-<circle class="marker-dot" cx="790" cy="130" r="7"></circle>
-</g>
+<button class="map-marker" data-region="marrowfen" type="button" aria-label="The Marrowfen Marshes" style="left:45%; top:78%;">
+<span class="marker-ring"></span>
+<span class="marker-dot"></span>
+</button>
 
-</svg>
+<button class="map-marker" data-region="sunreach" type="button" aria-label="The Sunreach Dunes &amp; Shore" style="left:69%; top:56%;">
+<span class="marker-ring"></span>
+<span class="marker-dot"></span>
+</button>
+
+<button class="map-marker" data-region="glassfrost" type="button" aria-label="The Glassfrost Tundra" style="left:70%; top:14%;">
+<span class="marker-ring"></span>
+<span class="marker-dot"></span>
+</button>
+
+</div>
 
 <p class="map-hint">CLICK A MARKER TO EXPLORE A REGION</p>
 
@@ -427,7 +451,6 @@ The Fauna archive documents these species in detail, region by region.
     // link (or a local path like "assets/emberwood-map.jpg") to change it.
     var regionData = {"emberwood": {"name": "The Emberwood", "desc": "Home of the Forest clans. A dense, dark-fir forest where light rarely reaches the ground and sza\u0142asy shelters are built into natural hollows.", "image": "https://radrians.neocities.org/sza\u0142asy.jpg"}, "hollowpeaks": {"name": "The Hollow Peaks", "desc": "A cold, wind-scoured mountain range home to Mountain clans, riddled with caves that give the range its name.", "image": "https://radrians.neocities.org/chcesz%20hotdoga%20znak%20zapytania.jpg"}, "marrowfen": {"name": "The Marrowfen Marshes", "desc": "A slow, reed-choked wetland where Marsh clans cultivate hanging moss gardens along raised walkways.", "image": "https://radrians.neocities.org/the%20hunt.jpg"}, "sunreach": {"name": "The Sunreach Dunes & Shore", "desc": "A stretch of coastline and interior desert shared by both Coastal and Sunreach clans, divided by a line of salt cliffs.", "image": "https://radrians.neocities.org/chcesz%20hotdoga%20znak%20zapytania.jpg"}, "glassfrost": {"name": "The Glassfrost Tundra", "desc": "An open ice plain where Tundra clans travel in long seasonal migrations, their calls carrying for miles across the flat white.", "image": "https://radrians.neocities.org/sza\u0142asy.jpg"}};
     var markers = document.querySelectorAll('.map-marker');
-    var regionShapes = document.querySelectorAll('.map-region');
     var titleEl = document.getElementById('mapInfoTitle');
     var descEl = document.getElementById('mapInfoDesc');
     var imageEl = document.getElementById('mapInfoImage');
@@ -446,18 +469,6 @@ The Fauna archive documents these species in detail, region by region.
     markers.forEach(function(marker){
         var id = marker.getAttribute('data-region');
         marker.addEventListener('click', function(){ selectRegion(id); });
-        marker.addEventListener('keydown', function(e){
-            if(e.key === 'Enter' || e.key === ' '){
-                e.preventDefault();
-                selectRegion(id);
-            }
-        });
-    });
-
-    regionShapes.forEach(function(shape){
-        shape.addEventListener('click', function(){
-            selectRegion(shape.getAttribute('data-region'));
-        });
     });
 })();
 </script>
