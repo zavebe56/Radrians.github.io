@@ -337,6 +337,161 @@ nav a.active{
     border-bottom:1px solid var(--accent);
 }
 
+/* =========================================================
+   NAV DROPDOWN (used by the "SPECIES" menu item, which opens
+   on hover/focus to reveal SUBSPECIES / ANATOMY / LANGUAGE).
+   To add another dropdown elsewhere, wrap the <li> with class
+   "has-dropdown" and put a <ul class="dropdown"> inside it,
+   same structure as the SPECIES item in the HTML.
+   ========================================================= */
+
+nav li.has-dropdown{
+
+    position:relative;
+}
+
+nav li.has-dropdown > a{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:5px;
+}
+
+nav li.has-dropdown > a::after{
+
+    content:"";
+
+    width:6px;
+
+    height:6px;
+
+    border-right:1px solid currentColor;
+
+    border-bottom:1px solid currentColor;
+
+    transform:rotate(45deg) translateY(-2px);
+
+    opacity:.7;
+}
+
+nav .dropdown{
+
+    position:absolute;
+
+    top:100%;
+
+    left:50%;
+
+    transform:translateX(-50%) translateY(6px);
+
+    min-width:180px;
+
+    padding:8px 0;
+
+    margin-top:14px;
+
+    background:var(--panel);
+
+    border:1px solid var(--border-strong);
+
+    box-shadow:0 18px 40px rgba(0,0,0,.35);
+
+    list-style:none;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:0;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    pointer-events:none;
+
+    transition:opacity .18s ease, transform .18s ease, visibility .18s;
+
+    z-index:60;
+}
+
+nav li.has-dropdown:hover .dropdown,
+nav li.has-dropdown:focus-within .dropdown{
+
+    opacity:1;
+
+    visibility:visible;
+
+    pointer-events:auto;
+
+    transform:translateX(-50%) translateY(0);
+}
+
+nav .dropdown li{
+
+    width:100%;
+}
+
+nav .dropdown a{
+
+    display:block;
+
+    padding:10px 20px;
+
+    font-size:12.5px;
+
+    letter-spacing:.4px;
+
+    text-align:left;
+
+    border-bottom:none;
+
+    white-space:nowrap;
+}
+
+nav .dropdown a:hover,
+nav .dropdown a.active{
+
+    color:var(--text);
+
+    background:var(--accent-soft);
+}
+
+@media(max-width:768px){
+
+    nav .dropdown{
+
+        position:static;
+
+        transform:none;
+
+        opacity:1;
+
+        visibility:visible;
+
+        pointer-events:auto;
+
+        box-shadow:none;
+
+        border:none;
+
+        background:transparent;
+
+        margin-top:6px;
+
+        padding:0 0 0 14px;
+
+        align-items:center;
+    }
+
+    nav li.has-dropdown > a::after{
+        display:none;
+    }
+
+}
+
 /* THEME TOGGLE BUTTON */
 
 .theme-toggle{
