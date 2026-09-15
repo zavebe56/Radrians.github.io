@@ -376,6 +376,28 @@ nav li.has-dropdown > a::after{
     opacity:.7;
 }
 
+/* Invisible bridge filling the gap between the nav link and the
+   dropdown box below it. Without this, moving the mouse from
+   "SPECIES" down to the dropdown crosses empty space that isn't
+   part of any hoverable element, so :hover drops and the menu
+   closes before you can reach the buttons inside it. This
+   pseudo-element sits in that gap and keeps the whole path
+   hoverable, so the dropdown stays open. */
+nav li.has-dropdown::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:100%;
+
+    left:0;
+
+    right:0;
+
+    height:14px;
+}
+
 nav .dropdown{
 
     position:absolute;
