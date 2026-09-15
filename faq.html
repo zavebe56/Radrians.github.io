@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+(function(){
+    try{
+        if(localStorage.getItem('theme') === 'light'){
+            document.documentElement.setAttribute('data-theme','light');
+        }
+    }catch(e){}
+})();
+</script>
+
+<title>FAQ | ESTERASUL</title>
+
+
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="page">
+
+<header>
+
+<a href="index.html" class="logo">
+
+<div class="logo-symbol">R</div>
+
+<div>
+
+<h1>ESTERASUL</h1>
+<span>Radrian Archive</span>
+
+</div>
+
+</a>
+
+<div class="header-right">
+
+<nav>
+
+<ul>
+
+<li><a href="index.html">HOME</a></li>
+
+<li class="has-dropdown">
+
+<a href="species.html">SPECIES</a>
+
+<button type="button" class="dropdown-toggle" aria-expanded="false" aria-controls="species-dropdown" aria-label="Toggle Species submenu"></button>
+
+<ul class="dropdown" id="species-dropdown">
+
+<li><a href="subspecies.html">Subspecies</a></li>
+
+<li><a href="anatomy.html">Anatomy</a></li>
+
+<li><a href="language.html">Language</a></li>
+
+</ul>
+
+</li>
+
+<li><a href="world.html">WORLD</a></li>
+
+<li><a href="fauna.html">FAUNA</a></li>
+
+<li><a href="discoveries.html">DISCOVERIES</a></li>
+
+<li><a href="gallery.html">GALLERY</a></li>
+
+<li><a href="faq.html" class="active">FAQ</a></li>
+
+</ul>
+
+</nav>
+
+<button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle light and dark theme">
+<span class="theme-icon-dark">&#9789;</span>
+<span class="theme-icon-light">&#9728;</span>
+</button>
+
+</div>
+
+</header>
+
+<!-- Page hero background image: add a url inside the empty quotes below, e.g. style="background-image:url('assets/hero-faq.jpg');" -->
+<section class="hero page-hero" style="background-image:url('assets/the hunt.jpg');">
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+
+        <span class="hero-small">
+            READ FIRST
+        </span>
+
+        <h2>
+            FREQUENTLY ASKED QUESTIONS
+        </h2>
+
+        <div class="hero-divider"></div>
+
+        <p>
+            Answers to the questions we get most about the archive, the Radrians, and how to use this site.
+        </p>
+
+    </div>
+
+</section>
+
+<div class="page-intro">
+
+<span class="eyebrow">BEFORE YOU DIG IN</span>
+
+<p>
+If you're new to the archive, start here. These are the questions most visitors ask before they get lost in the SPECIES and WORLD sections — what this project actually is, how the archive is organized, and how to get in touch if you've spotted something we missed.
+</p>
+
+</div>
+
+<section style="margin:36px 0 0;">
+
+<details class="faq-item" open>
+
+<summary>
+<span class="faq-q-text">What is Esterasul?</span>
+<span class="faq-mark">+</span>
+</summary>
+
+<div class="faq-a">
+<p>
+Esterasul is the ongoing field archive for the Radrian species — a running record of their subspecies, anatomy, language, habitat, and the animals that share their world. Think of it as a living reference rather than a finished book: entries get revised as new field notes come in.
+</p>
+</div>
+
+</details>
+
+<details class="faq-item">
+
+<summary>
+<span class="faq-q-text">What exactly are the Radrians?</span>
+<span class="faq-mark">+</span>
+</summary>
+
+<div class="faq-a">
+<p>
+The short answer lives on the SPECIES page. In brief, they're the subject species of this archive, documented across several known subspecies with their own anatomy and dialects — start there for the overview, then branch into SUBSPECIES, ANATOMY, or LANGUAGE for detail.
+</p>
+</div>
+
+</details>
+
+<details class="faq-item">
+
+<summary>
+<span class="faq-q-text">Where should I start if I'm new here?</span>
+<span class="faq-mark">+</span>
+</summary>
+
+<div class="faq-a">
+<p>
+The homepage's quick-link row (OVERVIEW, SUBSPECIES, ANATOMY, WORLD, FAUNA, GALLERY) is the fastest way in. If you want the full narrative arc, read SPECIES first, then WORLD for context on where they live, then FAUNA for what lives alongside them.
+</p>
+</div>
+
+</details>
+
+<details class="faq-item">
+
+<summary>
+<span class="faq-q-text">How often is the archive updated?</span>
+<span class="faq-mark">+</span>
+</summary>
+
+<div class="faq-a">
+<p>
+New entries are added as discoveries are confirmed rather than on a fixed schedule. The DISCOVERIES page lists the most recent additions first, so that's the page to check if you want to see what's changed lately.
+</p>
+</div>
+
+</details>
+
+<details class="faq-item">
+
+<summary>
+<span class="faq-q-text">Can I submit a discovery or correction?</span>
+<span class="faq-mark">+</span>
+</summary>
+
+<div class="faq-a">
+<p>
+Yes — reach out through the contact details on the DISCOVERIES page with what you observed, where, and any supporting images. Submissions are reviewed before they're folded into the archive, so entries stay consistent with existing records.
+</p>
+</div>
+
+</details>
+
+<details class="faq-item">
+
+<summary>
+<span class="faq-q-text">Can I reuse images or text from the archive?</span>
+<span class="faq-mark">+</span>
+</summary>
+
+<div class="faq-a">
+<p>
+Get in touch first. Some material comes from outside contributors and carries its own terms, so we handle reuse requests case by case rather than granting blanket permission.
+</p>
+</div>
+
+</details>
+
+</section>
+
+<footer>
+
+<div class="footer-links">
+<a href="index.html">Home</a>
+<a href="species.html">Overview</a>
+<a href="subspecies.html">Subspecies</a>
+<a href="anatomy.html">Anatomy</a>
+<a href="world.html">World</a>
+<a href="fauna.html">Fauna</a>
+<a href="language.html">Language</a>
+<a href="discoveries.html">Discoveries</a>
+<a href="gallery.html">Gallery</a>
+<a href="faq.html">FAQ</a>
+</div>
+
+<p>◈ ESTERASUL — THE RADRIAN ARCHIVE ◈</p>
+
+</footer>
+
+</div>
+
+<script src="site.js"></script>
+
+<script src="nav-dropdown.js"></script>
+
+</body>
+</html>

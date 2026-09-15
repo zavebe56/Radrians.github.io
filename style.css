@@ -481,7 +481,103 @@ nav .dropdown a.active{
     background:var(--accent-soft);
 }
 
+/* Dedicated tap target for opening/closing a dropdown on mobile.
+   Hidden on desktop, where hovering the link itself is enough.
+   Kept as a separate element (instead of making the link do
+   double duty) so "SPECIES" can still be tapped to go straight
+   to species.html, while this arrow toggles the submenu. Wired
+   up by nav-dropdown.js. */
+.dropdown-toggle{
+
+    display:none;
+}
+
 @media(max-width:768px){
+
+    /* On touch devices there's no real ":hover", but some mobile
+       browsers fire it on the first tap anyway, which would fight
+       with the click-toggle below. Turn hover-to-open off here so
+       .is-open (set by JS) is the only thing controlling it. */
+    nav li.has-dropdown:hover .dropdown{
+
+        opacity:0;
+
+        visibility:hidden;
+
+        pointer-events:none;
+    }
+
+    nav li.has-dropdown{
+
+        display:flex;
+
+        flex-wrap:wrap;
+
+        align-items:center;
+
+        justify-content:center;
+
+        gap:6px;
+    }
+
+    nav li.has-dropdown::after{
+        content:none;
+    }
+
+    nav li.has-dropdown > a::after{
+        display:none;
+    }
+
+    .dropdown-toggle{
+
+        display:inline-flex;
+
+        align-items:center;
+
+        justify-content:center;
+
+        width:22px;
+
+        height:22px;
+
+        padding:0;
+
+        background:transparent;
+
+        border:1px solid var(--border-strong);
+
+        color:var(--text-muted);
+
+        cursor:pointer;
+
+        transition:transform .2s, background .2s, color .2s, border-color .2s;
+    }
+
+    .dropdown-toggle::after{
+
+        content:"";
+
+        width:6px;
+
+        height:6px;
+
+        border-right:1px solid currentColor;
+
+        border-bottom:1px solid currentColor;
+
+        transform:rotate(45deg) translateY(-2px);
+    }
+
+    li.has-dropdown.is-open .dropdown-toggle{
+
+        transform:rotate(180deg);
+
+        background:var(--accent);
+
+        border-color:var(--accent);
+
+        color:#fff;
+    }
 
     nav .dropdown{
 
@@ -489,11 +585,17 @@ nav .dropdown a.active{
 
         transform:none;
 
-        opacity:1;
+        width:100%;
 
-        visibility:visible;
+        max-height:0;
 
-        pointer-events:auto;
+        opacity:0;
+
+        visibility:hidden;
+
+        overflow:hidden;
+
+        pointer-events:none;
 
         box-shadow:none;
 
@@ -501,15 +603,26 @@ nav .dropdown a.active{
 
         background:transparent;
 
-        margin-top:6px;
+        margin-top:0;
 
         padding:0 0 0 14px;
 
         align-items:center;
+
+        transition:max-height .25s ease, opacity .2s ease, margin-top .25s ease;
     }
 
-    nav li.has-dropdown > a::after{
-        display:none;
+    li.has-dropdown.is-open .dropdown{
+
+        max-height:220px;
+
+        opacity:1;
+
+        visibility:visible;
+
+        pointer-events:auto;
+
+        margin-top:10px;
     }
 
 }
@@ -2177,4 +2290,125 @@ margin-left:-20px;
 margin-right:-20px;
 }
 
+}
+
+/* =========================================================
+   FAQ ACCORDION (faq.html)
+   Each question is a <details class="faq-item"> with a
+   <summary class="faq-q"> and a <div class="faq-a"> inside.
+   Uses the same open/closed toggle-mark pattern as the
+   .info-box cards elsewhere on the site, just in a single
+   stacked column instead of a grid.
+   ========================================================= */
+
+.faq-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:1px;
+
+    background:var(--border);
+
+    border:1px solid var(--border);
+}
+
+.faq-item{
+
+    background:var(--panel);
+}
+
+.faq-item > summary{
+
+    cursor:pointer;
+
+    list-style:none;
+
+    outline:none;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:20px;
+
+    padding:22px 26px;
+
+    transition:background .2s;
+}
+
+.faq-item > summary::-webkit-details-marker{
+
+    display:none;
+}
+
+.faq-item:not([open]) > summary:hover{
+
+    background:var(--panel-hover);
+}
+
+.faq-q-text{
+
+    font-family:var(--font-head);
+
+    font-size:17px;
+
+    font-weight:600;
+
+    color:var(--text);
+}
+
+.faq-mark{
+
+    flex-shrink:0;
+
+    width:22px;
+
+    height:22px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border:1px solid var(--border-strong);
+
+    color:var(--accent-hover);
+
+    font-size:14px;
+
+    line-height:1;
+
+    transition:transform .25s, background .2s, color .2s;
+}
+
+.faq-item[open] .faq-mark{
+
+    transform:rotate(45deg);
+
+    background:var(--accent);
+
+    border-color:var(--accent);
+
+    color:#fff;
+}
+
+.faq-a{
+
+    padding:0 26px 26px;
+
+    max-width:720px;
+}
+
+.faq-a p{
+
+    font-size:15.5px;
+
+    line-height:1.75;
+
+    color:var(--text-muted);
 }
