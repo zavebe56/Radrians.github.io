@@ -32,7 +32,7 @@
 
         document.documentElement.style.setProperty(
             '--header-offset',
-            header.offsetHeight + '16px'
+            header.offsetHeight + 'px'
         );
     }
 
