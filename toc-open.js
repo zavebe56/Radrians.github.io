@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function getHeaderOffset() {
         var header = document.querySelector('header');
-        return header ? header.offsetHeight : 100;
+        return header ? header.offsetHeight : -100;
     }
 
     function syncHeaderOffsetVar() {
