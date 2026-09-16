@@ -6,6 +6,15 @@
    scroll animation), positioning the box's top — image and
    title — right under the sticky header.
 
+   IMPORTANT: after the initial jump, the browser can still
+   nudge the scroll position on its own for a moment (web font
+   swapping in, the box's grid finishing layout, or the
+   browser's built-in "scroll anchoring" compensating for
+   content changes). To stop the box's title/image ending up
+   hidden behind the header when that happens, we don't just
+   scroll once — we re-check and re-correct the position for a
+   short settle window right after opening.
+
    Also keeps --header-offset in sync with the real header
    height, since other CSS (scroll-margin-top on .info-box)
    relies on that variable as a fallback for native browser
@@ -15,11 +24,12 @@
 
 document.addEventListener('DOMContentLoaded', function () {
 
-    var EXTRA_GAP = 30; // small breathing room below the header, in px
+    var EXTRA_GAP = 16;        // small breathing room below the header, in px
+    var SETTLE_FRAMES = 24;    // ~24 animation frames (roughly 0.3–0.4s) of correction
 
     function getHeaderOffset() {
         var header = document.querySelector('header');
-        return header ? header.offsetHeight : -100;
+        return header ? header.offsetHeight : 100;
     }
 
     function syncHeaderOffsetVar() {
@@ -30,7 +40,9 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Opens the target (if it's a closed <details>) and jumps to it
-    // instantly, aligning its top edge just under the sticky header.
+    // instantly, then keeps correcting its position for a short
+    // settle window so nothing can push its top out from under the
+    // sticky header after the fact.
     function openAndJump(id) {
 
         var target = document.getElementById(id);
@@ -41,22 +53,35 @@ document.addEventListener('DOMContentLoaded', function () {
             target.open = true;
         }
 
-        // Wait for the browser to finish laying out the now-open box
-        // before measuring its position — otherwise we measure the
-        // old (closed) layout and land in the wrong place.
-        requestAnimationFrame(function () {
-            requestAnimationFrame(function () {
+        var attempts = 0;
 
-                var rect = target.getBoundingClientRect();
-                var absoluteTop = rect.top + window.pageYOffset;
-                var scrollTarget = absoluteTop - getHeaderOffset() - EXTRA_GAP;
+        function correct() {
 
+            var desiredTop = getHeaderOffset() + EXTRA_GAP;
+            var rect = target.getBoundingClientRect();
+            var diff = rect.top - desiredTop;
+
+            // Only move if noticeably off, to avoid fighting sub-pixel jitter
+            // or a scroll the user has started doing themselves.
+            if (Math.abs(diff) > 1) {
                 window.scrollTo({
-                    top: Math.max(scrollTarget, 0),
+                    top: Math.max(window.pageYOffset + diff, 0),
                     left: 0,
                     behavior: 'auto' // instant — no animation
                 });
-            });
+            }
+
+            attempts++;
+
+            if (attempts < SETTLE_FRAMES) {
+                requestAnimationFrame(correct);
+            }
+        }
+
+        // Wait one frame for the "open" attribute change to be laid
+        // out before the first measurement.
+        requestAnimationFrame(function () {
+            requestAnimationFrame(correct);
         });
     }
 
