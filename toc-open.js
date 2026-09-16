@@ -35,20 +35,32 @@ document.addEventListener('DOMContentLoaded', function(){
                way, find the nearest details and open it. */
             var entry = target.matches('details') ? target : target.closest('details');
 
-            if(entry && !entry.open){
+            if(!entry) return;
 
+            if(!entry.open){
                 entry.open = true;
-
-                /* Let the browser's default "#id" jump run first,
-                   then correct the scroll position on the next
-                   frame — opening the details changes the page's
-                   layout/height, so the initial jump (based on the
-                   collapsed height) can land a bit off target. */
-                requestAnimationFrame(function(){
-
-                    target.scrollIntoView({ behavior:'smooth', block:'start' });
-                });
             }
+
+            /* Scroll so the TOP of the box (not the middle, and not
+               the heading somewhere inside it) lands just below the
+               sticky header. Opening the details changes the page's
+               height, so this waits a frame for that layout change
+               to settle before measuring/scrolling. */
+            requestAnimationFrame(function(){
+
+                var header = document.querySelector('header');
+
+                var headerHeight = header ? header.offsetHeight : 0;
+
+                var gap = 16; /* small breathing room below the header */
+
+                var boxTop = entry.getBoundingClientRect().top + window.scrollY;
+
+                window.scrollTo({
+                    top: boxTop - headerHeight - gap,
+                    behavior: 'smooth'
+                });
+            });
 
         });
 
