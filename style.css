@@ -84,6 +84,16 @@
 /* ---- HEADER BAR ---- */
 --header-bg:rgba(12,11,10,.86);  /* the sticky top nav bar's background + transparency */
 
+/* ---- STICKY HEADER SCROLL OFFSET ----
+   Used by .info-box's scroll-margin-top below so that jumping to
+   a box (via a TOC link, window.location.hash, or any script
+   calling scrollIntoView) lands the box just under the sticky
+   header instead of partway behind it. This fallback value is a
+   rough guess at the header's height; toc-open.js measures the
+   REAL header height on load/resize and overwrites this variable,
+   so the fallback only matters before JS runs or if JS is off. */
+--header-offset:100px;
+
 }
 
 /* =========================================================
@@ -1383,6 +1393,16 @@ footer p{
     display:block;
 
     transition:background .2s;
+
+    /* Fix for TOC / anchor / scrollIntoView jumps landing behind
+       or partway under the sticky header: this tells the browser
+       to stop scrolling --header-offset (plus a little breathing
+       room) BEFORE this element's top edge would otherwise reach
+       the very top of the viewport. Applies to native "#id" jumps,
+       history navigation, and any scrollIntoView() call — no JS
+       math required. See --header-offset in the :root block up
+       top, kept in sync with the real header height by toc-open.js. */
+    scroll-margin-top:calc(var(--header-offset) + 16px);
 }
 
 .info-box:not([open]):hover{

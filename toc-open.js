@@ -4,6 +4,14 @@
    open the <details class="info-box"> entry they point to,
    instead of just scrolling to a collapsed box.
 
+   The actual scroll POSITIONING (landing below the sticky
+   header instead of behind/under it) is handled in CSS via
+   scroll-margin-top on .info-box (see style.css). This script
+   only needs to:
+     1) keep --header-offset in sync with the real header height,
+     2) open the target <details> before the jump happens.
+   The browser's native "#id" navigation does the rest.
+
    Works on any page that has both:
      - <aside class="side-submenu"> ... <a href="#some-id">...</a>
      - <details id="some-id"> (or an element with that id
@@ -14,58 +22,62 @@
    right after the existing <script src="site.js"></script> tag.
    ========================================================= */
 
-document.addEventListener('DOMContentLoaded', function(){
+(function(){
 
-    var links = document.querySelectorAll('.side-submenu a[href^="#"]');
+    function syncHeaderOffset(){
 
-    links.forEach(function(link){
+        var header = document.querySelector('header');
 
-        link.addEventListener('click', function(){
+        if(!header) return;
 
-            var id = link.getAttribute('href').slice(1);
+        document.documentElement.style.setProperty(
+            '--header-offset',
+            header.offsetHeight + 'px'
+        );
+    }
 
-            if(!id) return;
+    /* Keep the offset accurate as the header changes size —
+       e.g. it wraps to two rows on narrow/mobile widths, or a
+       different font/zoom level changes its height. */
+    document.addEventListener('DOMContentLoaded', syncHeaderOffset);
+    window.addEventListener('load', syncHeaderOffset);
+    window.addEventListener('resize', syncHeaderOffset);
 
-            var target = document.getElementById(id);
+    document.addEventListener('DOMContentLoaded', function(){
 
-            if(!target) return;
+        var links = document.querySelectorAll('.side-submenu a[href^="#"]');
 
-            /* The id might be on the <details> itself, or on
-               something inside it (a heading, etc.) — either
-               way, find the nearest details and open it. */
-            var entry = target.matches('details') ? target : target.closest('details');
+        links.forEach(function(link){
 
-            if(!entry) return;
+            link.addEventListener('click', function(){
 
-            if(!entry.open){
-                entry.open = true;
-            }
+                var id = link.getAttribute('href').slice(1);
 
-            /* Scroll so the TOP of the box (not the middle, and not
-               the heading somewhere inside it) lands just below the
-               sticky header. Opening the details changes the page's
-               height, so this waits a frame for that layout change
-               to settle before measuring/scrolling. */
-            requestAnimationFrame(function(){
+                if(!id) return;
 
-                var header = document.querySelector('header');
+                var target = document.getElementById(id);
 
-                var headerHeight = header ? header.offsetHeight : 0;
+                if(!target) return;
 
-                var gap = 16; /* small breathing room below the header */
+                /* The id might be on the <details> itself, or on
+                   something inside it (a heading, etc.) — either
+                   way, open the nearest details BEFORE the browser's
+                   default "#id" jump runs, so it measures the
+                   already-expanded layout. */
+                var entry = target.matches('details') ? target : target.closest('details');
 
-                var boxBody = entry.querySelector('.box-body') || entry;
+                if(entry && !entry.open){
+                    entry.open = true;
+                }
 
-                var boxTop = boxBody.getBoundingClientRect().top + window.scrollY;
-
-                window.scrollTo({
-                    top: boxTop - headerHeight - gap,
-                    behavior: 'smooth'
-                });
+                /* No manual scrolling here — the native anchor jump
+                   that follows this click handler will scroll to
+                   `target`, and scroll-margin-top in the CSS keeps
+                   it clear of the sticky header. */
             });
 
         });
 
     });
 
-});
+})();
