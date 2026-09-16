@@ -1394,6 +1394,13 @@ footer p{
 
     transition:background .2s;
 
+    /* Stops the browser's automatic "scroll anchoring" from quietly
+       shifting the page after this box opens (e.g. once its grid or
+       fonts finish settling). Without this, the scroll position
+       toc-open.js sets can drift a moment later, hiding the box's
+       title/image behind the sticky header. */
+    overflow-anchor:none;
+
     /* Fix for TOC / anchor / scrollIntoView jumps landing behind
        or partway under the sticky header: this tells the browser
        to stop scrolling --header-offset (plus a little breathing
@@ -1408,7 +1415,7 @@ footer p{
        matches what the JS does. See --header-offset in the :root
        block up top, kept in sync with the real header height by
        toc-open.js. */
-    scroll-margin-top:calc(var(--header-offset) - 40px);
+    scroll-margin-top:calc(var(--header-offset) + 16px);
 }
 
 .info-box:not([open]):hover{
