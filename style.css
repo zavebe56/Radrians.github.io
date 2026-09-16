@@ -1402,7 +1402,7 @@ footer p{
        history navigation, and any scrollIntoView() call — no JS
        math required. See --header-offset in the :root block up
        top, kept in sync with the real header height by toc-open.js. */
-    scroll-margin-top:calc(var(--header-offset) + 32px);
+    scroll-margin-top:calc(var(--header-offset) + 80px);
 }
 
 .info-box:not([open]):hover{
