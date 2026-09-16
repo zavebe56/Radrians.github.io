@@ -1,8 +1,11 @@
 /* =========================================================
    ESTERASUL — RADRIAN ARCHIVE
-   site.js — theme toggle + image lightbox
+   site.js — theme toggle + image lightbox + TOC box-open/scroll
    Shared by every page. Include with:
      <script src="site.js"></script>
+   (toc-open.js is no longer a separate file — its logic now
+   lives in the third IIFE below, so there's one less script
+   tag/path that can go stale or 404.)
    ========================================================= */
 
 (function () {
@@ -145,4 +148,109 @@
       if (url) openLightbox(url, "");
     });
   }
+})();
+
+(function () {
+  "use strict";
+
+  /* ---------------------------------------------------------
+     TOC / SIDEBAR BOX OPEN + SCROLL
+     Makes sidebar / TOC links (anything linking to "#some-id")
+     open the matching <details class="info-box"> BEFORE
+     scrolling to it, then jumps to it in a single instant move
+     (no smooth-scroll animation, no repeated re-correction),
+     positioning the box's top — image and title — right under
+     the sticky header.
+
+     Uses the browser's own scrollIntoView() to do the actual
+     positioning (it respects .info-box's scroll-margin-top in
+     style.css), instead of computing the scroll distance by
+     hand — that avoids direction-dependent bugs a hand-rolled
+     getBoundingClientRect()-based calculation is prone to.
+
+     It forces scroll-behavior to "auto" on <html> for the
+     instant this runs, so the site's CSS scroll-behavior:smooth
+     (see style.css) can't turn this into an animated scroll,
+     then restores it afterward so smooth-scrolling still works
+     everywhere else on the site.
+
+     Also keeps --header-offset in sync with the real header
+     height, since .info-box's scroll-margin-top is defined in
+     terms of that variable.
+     --------------------------------------------------------- */
+
+  function getHeaderOffset() {
+    var header = document.querySelector("header");
+    return header ? header.offsetHeight : 100;
+  }
+
+  function syncHeaderOffsetVar() {
+    document.documentElement.style.setProperty(
+      "--header-offset",
+      getHeaderOffset() + "px"
+    );
+  }
+
+  // Jumps to target using the browser's own layout math, forcing it
+  // to be a single instant move regardless of the site's CSS
+  // scroll-behavior.
+  function jumpTo(target) {
+    var htmlEl = document.documentElement;
+    var prevScrollBehavior = htmlEl.style.scrollBehavior;
+
+    htmlEl.style.scrollBehavior = "auto";
+
+    target.scrollIntoView({ behavior: "auto", block: "start" });
+
+    requestAnimationFrame(function () {
+      htmlEl.style.scrollBehavior = prevScrollBehavior;
+    });
+  }
+
+  // Opens the target (if it's a closed <details>) and jumps to it
+  // once, right after the browser has laid out the newly-opened box.
+  function openAndJump(id) {
+    var target = document.getElementById(id);
+
+    if (!target) return;
+
+    if (target.tagName === "DETAILS" && !target.open) {
+      target.open = true;
+    }
+
+    // Wait one frame for the "open" attribute change to be laid out
+    // before jumping, so we measure/scroll against the expanded box,
+    // not its collapsed size.
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        jumpTo(target);
+      });
+    });
+  }
+
+  // Intercept every in-page "#id" link (sidebar / TOC links) so we
+  // control the open + scroll sequence ourselves, instead of letting
+  // the browser do its own (premature) native jump.
+  document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+    var id = link.getAttribute("href").slice(1);
+
+    if (!id) return;
+
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
+      openAndJump(id);
+      history.pushState(null, "", "#" + id);
+    });
+  });
+
+  // If the page was loaded directly with a hash in the URL (e.g. a
+  // bookmarked link or a link from another page), open and jump to
+  // that box on load too.
+  if (window.location.hash) {
+    var initialId = window.location.hash.slice(1);
+    setTimeout(function () { openAndJump(initialId); }, 50);
+  }
+
+  syncHeaderOffsetVar();
+  window.addEventListener("resize", syncHeaderOffsetVar);
 })();
