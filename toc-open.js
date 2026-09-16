@@ -54,7 +54,9 @@ document.addEventListener('DOMContentLoaded', function(){
 
                 var gap = 16; /* small breathing room below the header */
 
-                var boxTop = entry.getBoundingClientRect().top + window.scrollY;
+                var boxBody = entry.querySelector('.box-body') || entry;
+
+                var boxTop = boxBody.getBoundingClientRect().top + window.scrollY;
 
                 window.scrollTo({
                     top: boxTop - headerHeight - gap,
