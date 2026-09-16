@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+(function(){
+    try{
+        if(localStorage.getItem('theme') === 'light'){
+            document.documentElement.setAttribute('data-theme','light');
+        }
+    }catch(e){}
+})();
+</script>
+
+<title>World | ESTERASUL</title>
+
+
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="page">
+
+<header>
+
+<a href="index.html" class="logo">
+
+<div class="logo-symbol">R</div>
+
+<div>
+
+<h1>ESTERASUL</h1>
+<span>Radrian Archive</span>
+
+</div>
+
+</a>
+
+<div class="header-right">
+
+<nav>
+
+<ul>
+
+<li><a href="index.html">HOME</a></li>
+
+<li class="has-dropdown">
+
+<a href="species.html">Radrian SPECIES</a>
+
+<button type="button" class="dropdown-toggle" aria-expanded="false" aria-controls="species-dropdown" aria-label="Toggle Species submenu"></button>
+
+<ul class="dropdown" id="species-dropdown">
+
+<li><a href="species.html">Species</a></li>
+
+<li><a href="subspecies.html">Subspecies</a></li>
+
+<li><a href="culture.html">Culture</a></li>
+
+<li><a href="language.html">Language</a></li>
+
+</ul>
+
+</li>
+
+<li><a href="world.html" class="active">WORLD MAP</a></li>
+
+<li><a href="fauna.html">Local FAUNA</a></li>
+
+<li><a href="discoveries.html">DISCOVERIES</a></li>
+
+<li><a href="gallery.html">GALLERY</a></li>
+
+<li><a href="faq.html">FAQ</a></li>
+
+</ul>
+
+</nav>
+
+<button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle light and dark theme">
+<span class="theme-icon-dark">&#9789;</span>
+<span class="theme-icon-light">&#9728;</span>
+</button>
+
+</div>
+
+</header>
+
+
+<section class="hero page-hero" style="">
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-circle"></div>
+
+    <div class="hero-content">
+
+        <span class="hero-small">THE ARCHIVE</span>
+
+        <h2>WORLD</h2>
+
+        <h3>Regions &amp; ecology</h3>
+
+        <div class="hero-divider"></div>
+
+        <p>this is a map yes.</p>
+
+    </div>
+
+</section>
+
+<section class="page-intro">
+
+<span class="eyebrow">GEOGRAPHY</span>
+
+<p>
+bullshit
+</p>
+
+</section>
+
+<section style="margin-top:35px;">
+
+<div class="map-layout">
+
+<div class="world-map">
+
+<div class="map-image" style="background-image:url('assets/map.jpg');">
+
+<button class="map-marker" data-region="emberwood" type="button" aria-label="The Emberwood" style="left:31%; top:63%;">
+<span class="marker-ring"></span>
+<span class="marker-dot"></span>
+</button>
+
+<button class="map-marker" data-region="hollowpeaks" type="button" aria-label="The Hollow Peaks" style="left:48%; top:20%;">
+<span class="marker-ring"></span>
+<span class="marker-dot"></span>
+</button>
+
+<button class="map-marker" data-region="marrowfen" type="button" aria-label="The Marrowfen Marshes" style="left:45%; top:78%;">
+<span class="marker-ring"></span>
+<span class="marker-dot"></span>
+</button>
+
+<button class="map-marker" data-region="sunreach" type="button" aria-label="The Sunreach Dunes &amp; Shore" style="left:69%; top:56%;">
+<span class="marker-ring"></span>
+<span class="marker-dot"></span>
+</button>
+
+<button class="map-marker" data-region="glassfrost" type="button" aria-label="The Glassfrost Tundra" style="left:70%; top:14%;">
+<span class="marker-ring"></span>
+<span class="marker-dot"></span>
+</button>
+
+</div>
+
+<p class="map-hint">CLICK A MARKER TO EXPLORE A REGION</p>
+
+</div>
+
+<div class="map-info" id="mapInfo">
+
+<div class="map-info-image" id="mapInfoImage"></div>
+
+<div class="map-info-body">
+
+<span class="box-tag">REGION</span>
+
+<h3 id="mapInfoTitle">Select a region</h3>
+
+<p id="mapInfoDesc">Click any marker on the map above to read about that region of Esterasul.</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="box-grid" style="margin-top:55px;">
+
+<div class="section-heading" style="grid-column:1/-1;">
+<h2>Region Entries</h2>
+<div class="rule"></div>
+</div>
+
+<details class="info-box" id="emberwood">
+
+<summary>
+
+<div class="box-image">❈</div>
+
+<div class="box-body">
+
+<span class="box-tag">REGION</span>
+
+<h3>The Emberwood</h3>
+
+<p>askjdhf kajshdfkj ahsdkfj ahskjdfh askjdfh kasjdhf kajshdf kjahsdf</p>
+
+
+
+<div class="box-toggle">
+<span class="toggle-mark">＋</span>
+<span class="toggle-text-closed">Read full entry</span>
+<span class="toggle-text-open">Collapse entry</span>
+</div>
+
+</div>
+
+</summary>
+
+<div class="box-expand">
+
+<div class="expand-text">
+
+<p>kajshdf kajshdfkjashdf kjashdfkj ahsdkjfh askjdfh askjdhf akjshdf kajshdf kjahsdkfj hasdkjfh askjdhf kajshdf kjahsdkf jhaskdjfh askjdhf kajshdf kjashdf kjahsdkjfh</p>
+
+<p>askdjfh askjdhf kajshdf kajshdfkj ahsdkfjh askdjfh askjdhf kajshdkfjh askdjfh</p>
+
+</div>
+
+<div class="expand-image"></div>
+
+</div>
+
+</details>
+
+<details class="info-box" id="hollowpeaks">
+
+<summary>
+
+<div class="box-image">▲</div>
+
+<div class="box-body">
+
+<span class="box-tag">REGION</span>
+
+<h3>The Hollow Peaks</h3>
+
+<p>qwoeiruqwoeiru qoweiru qoweiur oqiweur oqiweuroiqwuer oiquwer</p>
+
+
+
+<div class="box-toggle">
+<span class="toggle-mark">＋</span>
+<span class="toggle-text-closed">Read full entry</span>
+<span class="toggle-text-open">Collapse entry</span>
+</div>
+
+</div>
+
+</summary>
+
+<div class="box-expand">
+
+<div class="expand-text">
+
+<p>oqiwuer oqiweuroqiwuer oqiweuro iquweoriqu weroiquwe roiquweor iuqweoriu qweoriuqweoriuq weoriquweoriquweor iquweoriquweoriuqweor</p>
+
+<p>qoiweur oqiweur oqiwuer oqiweuroqiweur oiquweroiquwer oqiweuro</p>
+
+</div>
+
+<div class="expand-image"></div>
+
+</div>
+
+</details>
+
+<details class="info-box" id="marrowfen">
+
+<summary>
+
+<div class="box-image">❖</div>
+
+<div class="box-body">
+
+<span class="box-tag">REGION</span>
+
+<h3>The Marrowfen Marshes</h3>
+
+<p>zmxncv zmxcnv mznxcv mznxcvm znxcvm znxcvmz nxcvmz</p>
+
+
+
+<div class="box-toggle">
+<span class="toggle-mark">＋</span>
+<span class="toggle-text-closed">Read full entry</span>
+<span class="toggle-text-open">Collapse entry</span>
+</div>
+
+</div>
+
+</summary>
+
+<div class="box-expand">
+
+<div class="expand-text">
+
+<p>mznxcvm znxcvmzn xcvmznxc vmznxcvmz nxcvmznx cvmznxcv mznxcvmzn xcvmznxcvm znxcvmznxc vmznxcvm znxcvmznxcv</p>
+
+<p>zxmncv mznxcvmz nxcvmz nxcvmznxc vmznxcv mznxcvmzn</p>
+
+</div>
+
+<div class="expand-image"></div>
+
+</div>
+
+</details>
+
+<details class="info-box" id="sunreach">
+
+<summary>
+
+<div class="box-image">◉</div>
+
+<div class="box-body">
+
+<span class="box-tag">REGION</span>
+
+<h3>The Sunreach Dunes &amp; Shore</h3>
+
+<p>plkjhgf plkjhgfd plkjhgfdplk jhgfdplkj hgfdplkjh gfdplkj</p>
+
+
+
+<div class="box-toggle">
+<span class="toggle-mark">＋</span>
+<span class="toggle-text-closed">Read full entry</span>
+<span class="toggle-text-open">Collapse entry</span>
+</div>
+
+</div>
+
+</summary>
+
+<div class="box-expand">
+
+<div class="expand-text">
+
+<p>plkjhgfdplkj hgfdplkjhg fdplkjhgfd plkjhgfdp lkjhgfdplk jhgfdplkjhgf dplkjhgfd plkjhgfdplkjh gfdplkjhgfd</p>
+
+<p>lkjhgfd plkjhgfdp lkjhgfdplk jhgfdplkjh gfdplkjhgfd plkjhgf</p>
+
+</div>
+
+<div class="expand-image"></div>
+
+</div>
+
+</details>
+
+<details class="info-box" id="glassfrost">
+
+<summary>
+
+<div class="box-image">✦</div>
+
+<div class="box-body">
+
+<span class="box-tag">REGION</span>
+
+<h3>The Glassfrost Tundra</h3>
+
+<p>bvcxz bvcxzn bvcxznm bvcxznmb vcxznmb vcxznmbv cxznm</p>
+
+
+
+<div class="box-toggle">
+<span class="toggle-mark">＋</span>
+<span class="toggle-text-closed">Read full entry</span>
+<span class="toggle-text-open">Collapse entry</span>
+</div>
+
+</div>
+
+</summary>
+
+<div class="box-expand">
+
+<div class="expand-text">
+
+<p>bvcxznmb vcxznmbvc xznmbvcxz nmbvcxznmb vcxznmbvcx znmbvcxznmb vcxznmbvcxz nmbvcxznmbv cxznmbvcxznm bvcxznmbvcxzn</p>
+
+<p>vcxznmb vcxznmbv cxznmbvcx znmbvcxz nmbvcxznm bvcxznm</p>
+
+</div>
+
+<div class="expand-image"></div>
+
+</div>
+
+</details>
+
+</section>
+
+<section style="margin-top:55px;">
+
+<div class="text-panel">
+
+<h2>Shared Ecology</h2>
+
+<p>
+Radrians are not alone in Esterasul. Every region hosts its own fauna —
+some hunted, some kept, some simply coexisting alongside the clans.
+The Fauna archive documents these species in detail, region by region.
+</p>
+
+<div class="pill-list">
+<span>The Emberwood</span>
+<span>The Hollow Peaks</span>
+<span>The Marrowfen Marshes</span>
+<span>The Sunreach Dunes &amp; Shore</span>
+<span>The Glassfrost Tundra</span>
+</div>
+
+<a href="fauna.html" class="main-button">BROWSE THE FAUNA →</a>
+
+</div>
+
+</section>
+
+<script>
+(function(){
+    var regionData = {"emberwood": {"name": "The Emberwood", "desc": "askjdhf kajshdfkj ahsdkfj ahskjdfh askjdfh kasjdhf kajshdf kjahsdf", "image": "https://radrians.neocities.org/sza\u0142asy.jpg"}, "hollowpeaks": {"name": "The Hollow Peaks", "desc": "qwoeiruqwoeiru qoweiru qoweiur oqiweur oqiweuroiqwuer oiquwer", "image": "https://radrians.neocities.org/chcesz%20hotdoga%20znak%20zapytania.jpg"}, "marrowfen": {"name": "The Marrowfen Marshes", "desc": "zmxncv zmxcnv mznxcv mznxcvm znxcvm znxcvmz nxcvmz", "image": "https://radrians.neocities.org/the%20hunt.jpg"}, "sunreach": {"name": "The Sunreach Dunes & Shore", "desc": "plkjhgf plkjhgfd plkjhgfdplk jhgfdplkj hgfdplkjh gfdplkj", "image": "https://radrians.neocities.org/chcesz%20hotdoga%20znak%20zapytania.jpg"}, "glassfrost": {"name": "The Glassfrost Tundra", "desc": "bvcxz bvcxzn bvcxznm bvcxznmb vcxznmb vcxznmbv cxznm", "image": "https://radrians.neocities.org/sza\u0142asy.jpg"}};
+    var markers = document.querySelectorAll('.map-marker');
+    var titleEl = document.getElementById('mapInfoTitle');
+    var descEl = document.getElementById('mapInfoDesc');
+    var imageEl = document.getElementById('mapInfoImage');
+
+    function selectRegion(id){
+        var data = regionData[id];
+        if(!data) return;
+        markers.forEach(function(m){ m.classList.toggle('active', m.getAttribute('data-region') === id); });
+        titleEl.textContent = data.name;
+        descEl.textContent = data.desc;
+        imageEl.style.backgroundImage = "url('" + data.image + "')";
+        imageEl.style.backgroundSize = "cover";
+        imageEl.style.backgroundPosition = "center";
+    }
+
+    markers.forEach(function(marker){
+        var id = marker.getAttribute('data-region');
+        marker.addEventListener('click', function(){ selectRegion(id); });
+    });
+})();
+</script>
+
+<footer>
+
+<div class="footer-links">
+
+<a href="index.html">Home</a>
+<a href="species.html">Species</a>
+<a href="subspecies.html">Subspecies</a>
+<a href="culture.html">Culture</a>
+<a href="language.html">Language</a>
+<a href="world.html">World</a>
+<a href="fauna.html">Fauna</a>
+<a href="discoveries.html">Discoveries</a>
+<a href="gallery.html">Gallery</a>
+<a href="faq.html">FAQ</a>
+
+</div>
+
+<p>◈ ESTERASUL - THE RADRIAN ARCHIVE ◈ © 2026 Raksz56. All rights reserved.</p>
+
+</footer>
+
+</div>
+
+
+<script src="site.js"></script>
+<script src="nav-dropdown.js"></script>
+</body>
+</html>

@@ -1,136 +1,56 @@
-/* =========================================================
-   ESTERASUL — RADRIAN ARCHIVE
-   Professional theme, matched to the reference artwork:
-   charcoal / bone / rust-red, editorial serif + clean sans.
-   =========================================================
 
-   ---------------------------------------------------------
-   HOW TO CUSTOMIZE THIS FILE — QUICK GUIDE
-   ---------------------------------------------------------
-
-   1) COLORS
-      All colors live as CSS variables in the ":root{...}" block
-      just below this comment (dark theme), and again in the
-      "html[data-theme=\"light\"]{...}" block right after it
-      (light theme). Change a color ONCE in each of those two
-      blocks and it updates everywhere on every page, because
-      every rule in this file references var(--name) instead
-      of a hard-coded color. Each variable is explained inline
-      below.
-
-   2) FONTS
-      Two fonts are loaded on the @import line directly under
-      this comment: "Fraunces" (the serif used for all
-      headings — h1/h2/h3, box titles, logo) and "Inter" (the
-      sans-serif used for body text, nav, tags, buttons). To
-      change either font:
-        a. Swap the font name(s) in the @import URL below to a
-           font from https://fonts.google.com
-        b. Update --font-head and/or --font-body inside :root
-           to the new font name.
-      Font SIZE for a given element (e.g. hero title, box
-      heading) is set individually where that element is
-      styled further down this file — search for the class
-      name (e.g. ".hero-content h2") to adjust just that one.
-
-   3) BOX / HEADER BACKGROUND IMAGES
-      Background images for the hero banner at the top of each
-      page and for every expandable box are NOT set in this
-      CSS file — they're set per-page, directly in the HTML,
-      using a style="background-image:url('...')" attribute.
-      This file only controls how those images are framed
-      (size, position, height, overlay darkness). See the
-      ".hero", ".box-image", and ".expand-image" sections
-      further down for those framing rules. Open any .html
-      file and search for "background-image" to find every
-      spot you can drop in your own picture — each one has a
-      comment above it telling you what it's for.
-   ========================================================= */
 
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap');
 
 :root{
 
-/* ---- BACKGROUNDS ---- */
---bg:#0c0b0a;              /* page background (behind everything) */
---bg-soft:#131110;         /* slightly lighter background, used behind empty image boxes */
+--bg:#0c0b0a;              
+--bg-soft:#131110;         
 
-/* ---- PANELS (box/card backgrounds) ---- */
---panel:#161412;           /* background of boxes, cards, the side menu, text panels */
---panel-hover:#1c1a17;     /* box background on mouse hover */
+--panel:#161412;           
+--panel-hover:#1c1a17;     
 
-/* ---- BORDERS / DIVIDER LINES ---- */
---border:rgba(233,225,213,.10);         /* thin, subtle lines between boxes/sections */
---border-strong:rgba(233,225,213,.20);  /* slightly more visible lines (pills, buttons) */
+--border:rgba(233,225,213,.10);         
+--border-strong:rgba(233,225,213,.20);  
 
-/* ---- TEXT COLORS ---- */
---text:#e7e1d6;         /* main/heading text color */
---text-muted:#a79e91;   /* paragraph / body text color */
---text-faint:#787064;   /* smallest, least important text (labels, hints) */
+--text:#e7e1d6;         
+--text-muted:#a79e91;   
+--text-faint:#787064;   
 
-/* ---- ACCENT (the rust-red highlight color) ---- */
---accent:#b1402a;                       /* buttons, dividers, active nav underline */
---accent-hover:#c9503a;                 /* tags, links, hover state of accent elements */
---accent-soft:rgba(177,64,42,.14);      /* faint accent tint, e.g. active side-menu row */
---accent-border:rgba(177,64,42,.4);     /* accent-colored border, currently unused directly */
+--accent:#b1402a;                       
+--accent-hover:#c9503a;                 
+--accent-soft:rgba(177,64,42,.14);      
+--accent-border:rgba(177,64,42,.4);     
 
-/* ---- FONTS ----
-   Change the font NAME here to switch fonts site-wide.
-   Remember to also update the @import line above if you pick
-   a font that isn't Fraunces/Inter from Google Fonts. */
---font-head:'Fraunces', Georgia, serif;                              /* all headings + box titles */
---font-body:'Inter', -apple-system, BlinkMacSystemFont, sans-serif;  /* body text, nav, buttons */
+--font-head:'Fraunces', Georgia, serif;                              
+--font-body:'Inter', -apple-system, BlinkMacSystemFont, sans-serif;  
 
-/* ---- HEADER BAR ---- */
---header-bg:rgba(12,11,10,.86);  /* the sticky top nav bar's background + transparency */
+--header-bg:rgba(12,11,10,.86);  
 
-/* ---- STICKY HEADER SCROLL OFFSET ----
-   Used by .info-box's scroll-margin-top below so that jumping to
-   a box (via a TOC link, window.location.hash, or any script
-   calling scrollIntoView) lands the box just under the sticky
-   header instead of partway behind it. This fallback value is a
-   rough guess at the header's height; toc-open.js measures the
-   REAL header height on load/resize and overwrites this variable,
-   so the fallback only matters before JS runs or if JS is off. */
 --header-offset:100px;
 
 }
 
-/* =========================================================
-   LIGHT THEME
-   Toggled via [data-theme="light"] on <html>, see site.js.
-   This is the SAME list of variables as the :root block
-   above, just with light-mode values. If you change a color
-   up in :root, come down here and set its light-mode
-   equivalent too, or the theme toggle will look inconsistent.
-   ========================================================= */
-
 html[data-theme="light"]{
 
-/* ---- BACKGROUNDS ---- */
 --bg:#f4efe6;
 --bg-soft:#ece5d8;
 
-/* ---- PANELS (box/card backgrounds) ---- */
 --panel:#fffdfa;
 --panel-hover:#f6f1e9;
 
-/* ---- BORDERS / DIVIDER LINES ---- */
 --border:rgba(35,29,22,.10);
 --border-strong:rgba(35,29,22,.22);
 
-/* ---- TEXT COLORS ---- */
 --text:#241f19;
 --text-muted:#5c5347;
 --text-faint:#8a8072;
 
-/* ---- ACCENT (the rust-red highlight color) ---- */
 --accent:#b1402a;
 --accent-hover:#c9503a;
 --accent-soft:rgba(177,64,42,.14);
 --accent-border:rgba(177,64,42,.4);
 
-/* ---- HEADER BAR ---- */
 --header-bg:rgba(244,239,230,.88);
 
 }
@@ -192,8 +112,6 @@ a{ color:inherit; }
 
 img{ max-width:100%; display:block; }
 
-/* PAGE */
-
 .page{
 
 max-width:1360px;
@@ -204,8 +122,6 @@ padding:0 40px 40px;
 
 position:relative;
 }
-
-/* HEADER */
 
 header{
 
@@ -347,14 +263,6 @@ nav a.active{
     border-bottom:1px solid var(--accent);
 }
 
-/* =========================================================
-   NAV DROPDOWN (used by the "SPECIES" menu item, which opens
-   on hover/focus to reveal SUBSPECIES / ANATOMY / LANGUAGE).
-   To add another dropdown elsewhere, wrap the <li> with class
-   "has-dropdown" and put a <ul class="dropdown"> inside it,
-   same structure as the SPECIES item in the HTML.
-   ========================================================= */
-
 nav li.has-dropdown{
 
     position:relative;
@@ -386,13 +294,6 @@ nav li.has-dropdown > a::after{
     opacity:.7;
 }
 
-/* Invisible bridge filling the gap between the nav link and the
-   dropdown box below it. Without this, moving the mouse from
-   "SPECIES" down to the dropdown crosses empty space that isn't
-   part of any hoverable element, so :hover drops and the menu
-   closes before you can reach the buttons inside it. This
-   pseudo-element sits in that gap and keeps the whole path
-   hoverable, so the dropdown stays open. */
 nav li.has-dropdown::after{
 
     content:"";
@@ -491,12 +392,6 @@ nav .dropdown a.active{
     background:var(--accent-soft);
 }
 
-/* Dedicated tap target for opening/closing a dropdown on mobile.
-   Hidden on desktop, where hovering the link itself is enough.
-   Kept as a separate element (instead of making the link do
-   double duty) so "SPECIES" can still be tapped to go straight
-   to species.html, while this arrow toggles the submenu. Wired
-   up by nav-dropdown.js. */
 .dropdown-toggle{
 
     display:none;
@@ -504,10 +399,6 @@ nav .dropdown a.active{
 
 @media(max-width:768px){
 
-    /* On touch devices there's no real ":hover", but some mobile
-       browsers fire it on the first tap anyway, which would fight
-       with the click-toggle below. Turn hover-to-open off here so
-       .is-open (set by JS) is the only thing controlling it. */
     nav li.has-dropdown:hover .dropdown{
 
         opacity:0;
@@ -637,8 +528,6 @@ nav .dropdown a.active{
 
 }
 
-/* THEME TOGGLE BUTTON */
-
 .theme-toggle{
 
     width:38px;
@@ -698,23 +587,11 @@ nav .dropdown a.active{
 
 }
 
-/* =========================================================
-   HERO (the big banner at the top of every page)
-   The actual image is set in the HTML with a
-   style="background-image:url('...')" attribute on the
-   <section class="hero page-hero"> tag — this CSS block only
-   controls its size/shape. min-height controls how tall the
-   banner is; the .page-hero rule below makes inner pages
-   (everything except the homepage) shorter than the homepage
-   hero. The dark gradient over the image is set separately in
-   .hero-overlay just below.
-   ========================================================= */
-
 .hero{
 
     position:relative;
 
-    min-height:520px;      /* homepage hero height */
+    min-height:520px;
 
     display:flex;
 
@@ -729,15 +606,9 @@ nav .dropdown a.active{
 }
 
 .hero.page-hero{
-    min-height:280px;      /* inner-page hero height (Species, World, etc.) */
+    min-height:280px;
 }
 
-/* Darkens the hero background image so the white heading text
-   stays readable. The four numbers ending in a percent are how
-   far across the banner each shade reaches; the ",.94" / ",.78"
-   etc. numbers are opacity (0 = see-through, 1 = solid black).
-   If your custom image is busy or light-colored, raise these
-   opacity numbers a bit for better text contrast. */
 .hero-overlay{
 
     position:absolute;
@@ -892,8 +763,6 @@ nav .dropdown a.active{
 
 }
 
-/* ARCHIVE NAV (home quick links) */
-
 .archive-nav{
 
 display:grid;
@@ -961,8 +830,6 @@ letter-spacing:.2px;
     font-size:13.5px;
     color:var(--text-muted);
 }
-
-/* MAIN GRID (home) */
 
 .main-grid{
 
@@ -1037,9 +904,6 @@ color:var(--text-muted);
     padding:0;
 }
 
-/* Large decorative image panel on the homepage, set in
-   index.html with style="background-image:url('...')" on the
-   <div class="showcase-image">. */
 .showcase-image{
 
 height:100%;
@@ -1080,8 +944,6 @@ color:var(--text);
     line-height:1.6;
 }
 
-/* BUTTON */
-
 .main-button{
 
 display:inline-block;
@@ -1117,8 +979,6 @@ border-color:var(--accent);
 
 color:#fff;
 }
-
-/* FOOTER */
 
 footer{
 
@@ -1171,10 +1031,6 @@ footer p{
     letter-spacing:1px;
 }
 
-/* =========================================================
-   PAGE INTRO
-   ========================================================= */
-
 .page-intro{
 
     max-width:760px;
@@ -1210,10 +1066,6 @@ footer p{
     color:var(--text-muted);
 }
 
-/* =========================================================
-   CONTENT LAYOUT WITH SIDE SUBMENU
-   ========================================================= */
-
 .content-layout{
 
     display:grid;
@@ -1238,10 +1090,6 @@ footer p{
     border:1px solid var(--border);
 }
 
-/* Modifier: puts the submenu on the right instead of the left.
-   Use by adding class="content-layout right-submenu" to the
-   wrapper, and placing .content-main before .side-submenu in
-   the HTML (see species.html). */
 .content-layout.right-submenu{
     grid-template-columns:1fr 250px;
 }
@@ -1306,10 +1154,6 @@ footer p{
     gap:36px;
 }
 
-/* =========================================================
-   SECTION HEADING
-   ========================================================= */
-
 .section-heading{
 
     display:flex;
@@ -1358,13 +1202,6 @@ footer p{
     grid-column:1/-1;
 }
 
-/* =========================================================
-   EXPANDABLE CARD GRID
-   Cards open in place, span the full grid width, and push
-   the remaining cards down — no page reflow tricks required,
-   CSS Grid handles it natively via [open]{grid-column:1/-1}.
-   ========================================================= */
-
 .box-grid{
 
     display:grid;
@@ -1394,27 +1231,8 @@ footer p{
 
     transition:background .2s;
 
-    /* Stops the browser's automatic "scroll anchoring" from quietly
-       shifting the page after this box opens (e.g. once its grid or
-       fonts finish settling). Without this, the scroll position
-       toc-open.js sets can drift a moment later, hiding the box's
-       title/image behind the sticky header. */
     overflow-anchor:none;
 
-    /* Fix for TOC / anchor / scrollIntoView jumps landing behind
-       or partway under the sticky header: this tells the browser
-       to stop scrolling --header-offset (plus a little breathing
-       room) BEFORE this element's top edge would otherwise reach
-       the very top of the viewport. Applies to native "#id" jumps,
-       history navigation, and any scrollIntoView() call — no JS
-       math required. This is a FALLBACK only: toc-open.js now
-       calculates and performs the actual scroll itself (opening
-       the box first, then jumping instantly), so this value mainly
-       matters if JavaScript fails to load or is disabled. Kept
-       tight (just --header-offset + a small gap) so the fallback
-       matches what the JS does. See --header-offset in the :root
-       block up top, kept in sync with the real header height by
-       toc-open.js. */
     scroll-margin-top:calc(var(--header-offset) + 16px);
 }
 
@@ -1466,31 +1284,19 @@ footer p{
     }
 }
 
-/* =========================================================
-   BOX IMAGE (the picture shown on a collapsed/closed card)
-   Set the actual picture per-box in the HTML, e.g.:
-     <div class="box-image" style="background-image:url('assets/your-image.jpg');">
-   If you leave the style attribute off (or the url empty),
-   the box just shows the plain --bg-soft color underneath —
-   that's fine, it's not required to have an image on every box.
-   ========================================================= */
-
 .box-image{
 
-    height:200px;                    /* how tall the image area is when the card is closed */
+    height:200px;
 
     background-size:cover;
 
     background-position:center;
 
-    background-color:var(--bg-soft); /* shown if no image is set */
+    background-color:var(--bg-soft);
 
     position:relative;
 }
 
-/* Subtle dark fade at the bottom of the box image, purely
-   decorative — safe to delete this whole rule if you don't
-   want it. */
 .box-image::after{
 
     content:"";
@@ -1621,8 +1427,6 @@ footer p{
     display:inline;
 }
 
-/* EXPANDED CONTENT */
-
 .box-expand{
 
     display:grid;
@@ -1650,11 +1454,6 @@ footer p{
     margin-bottom:0;
 }
 
-/* Picture shown beside the text once a card is OPENED/expanded.
-   Set it the same way as .box-image, e.g.:
-     <div class="expand-image" style="background-image:url('assets/your-image-full.jpg');">
-   This can be the same image as the box-image, or a different,
-   larger one — entirely up to you. */
 .expand-image{
 
     min-height:200px;
@@ -1679,10 +1478,6 @@ footer p{
     }
 
 }
-
-/* =========================================================
-   TEXT PANEL
-   ========================================================= */
 
 .text-panel{
 
@@ -1746,10 +1541,6 @@ footer p{
 
     color:var(--text-muted);
 }
-
-/* =========================================================
-   GALLERY GRID
-   ========================================================= */
 
 .gallery-grid{
 
@@ -1824,21 +1615,6 @@ footer p{
     margin-top:4px;
 }
 
-/* =========================================================
-   INTERACTIVE WORLD MAP
-   The map is now a plain picture (.map-image) with small round
-   marker buttons (.map-marker) placed on top of it. Each
-   marker's position is set with inline "left"/"top" percentages
-   in the HTML, not here — see the comment above the markers in
-   world.html for how to move or add one. This CSS only controls
-   how the image and dots look.
-   ========================================================= */
-
-/* Places the map and its region-info panel side by side. The
-   map takes a fixed column (560px below — change that number to
-   resize the map) and the info panel fills the rest of the row.
-   No align-items here (defaults to stretch) so the info panel
-   grows to match the map's full height. */
 .map-layout{
 
     display:grid;
@@ -1857,9 +1633,6 @@ footer p{
     padding:24px;
 }
  
-/* The map picture itself. Change aspect-ratio if you swap in an
-   image with different proportions than a square (width/height) —
-   e.g. use 16/9 for a wide map, 3/4 for a tall one. */
 .map-image{
  
     position:relative;
@@ -1877,9 +1650,6 @@ footer p{
     overflow:hidden;
 }
  
-/* Each marker is a small invisible button  sized 28x28px, centred
-   exactly on its left/top point (the negative margin does the
-   centring so the coordinates line up with the visible dot). */
 .map-marker{
  
     position:absolute;
@@ -2062,10 +1832,6 @@ footer p{
 }
  
 
-/* =========================================================
-   LANGUAGE PAGE — vocabulary tables
-   ========================================================= */
-
 .lang-table{
 
     width:100%;
@@ -2161,10 +1927,6 @@ footer p{
 
     margin-top:4px;
 }
-
-/* =========================================================
-   IMAGE LIGHTBOX
-   ========================================================= */
 
 .gallery-item img{
     cursor:zoom-in;
@@ -2264,8 +2026,6 @@ body.lightbox-lock{
     overflow:hidden;
 }
 
-/* RESPONSIVE */
-
 @media(max-width:1100px){
 
 .archive-nav{
@@ -2324,15 +2084,6 @@ margin-right:-20px;
 }
 
 }
-
-/* =========================================================
-   FAQ ACCORDION (faq.html)
-   Each question is a <details class="faq-item"> with a
-   <summary class="faq-q"> and a <div class="faq-a"> inside.
-   Uses the same open/closed toggle-mark pattern as the
-   .info-box cards elsewhere on the site, just in a single
-   stacked column instead of a grid.
-   ========================================================= */
 
 .faq-list{
 
