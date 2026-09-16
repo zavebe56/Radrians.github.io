@@ -19,7 +19,7 @@
    height, since other CSS (scroll-margin-top on .info-box)
    relies on that variable as a fallback for native browser
    jumps (e.g. if JS fails to load, or a bookmarked link with
-   a hash is opened directly).
+   a hash is opened directly). 
    ========================================================= */
 
 document.addEventListener('DOMContentLoaded', function () {
