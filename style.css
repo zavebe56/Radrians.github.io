@@ -1400,9 +1400,15 @@ footer p{
        room) BEFORE this element's top edge would otherwise reach
        the very top of the viewport. Applies to native "#id" jumps,
        history navigation, and any scrollIntoView() call — no JS
-       math required. See --header-offset in the :root block up
-       top, kept in sync with the real header height by toc-open.js. */
-    scroll-margin-top:calc(var(--header-offset) + 80px);
+       math required. This is a FALLBACK only: toc-open.js now
+       calculates and performs the actual scroll itself (opening
+       the box first, then jumping instantly), so this value mainly
+       matters if JavaScript fails to load or is disabled. Kept
+       tight (just --header-offset + a small gap) so the fallback
+       matches what the JS does. See --header-offset in the :root
+       block up top, kept in sync with the real header height by
+       toc-open.js. */
+    scroll-margin-top:calc(var(--header-offset) + 16px);
 }
 
 .info-box:not([open]):hover{
