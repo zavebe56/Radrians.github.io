@@ -15,7 +15,7 @@
 
 document.addEventListener('DOMContentLoaded', function () {
 
-    var EXTRA_GAP = 16; // small breathing room below the header, in px
+    var EXTRA_GAP = 30; // small breathing room below the header, in px
 
     function getHeaderOffset() {
         var header = document.querySelector('header');
